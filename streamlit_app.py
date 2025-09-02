@@ -180,22 +180,28 @@ def main():
                 with st.spinner("Searching documents..."):
                     try:
                         # Add highlighting options
-                        with st.expander("🎨 Highlighting Options", expanded=False):
+                        with st.expander("🎨 Highlighting Options", expanded=True):
                             col1, col2 = st.columns(2)
                             with col1:
-                                use_advanced = st.checkbox("Advanced Highlighting", value=True, 
+                                exact_match_only = st.checkbox("Exact Match Only", value=True,
+                                                             help="✅ RECOMMENDED: Only highlight exact query terms")
+                                use_advanced = st.checkbox("Advanced Highlighting", value=False, 
                                                          help="Use NLP-based highlighting with synonyms")
                                 include_context = st.checkbox("Contextual Info", value=True,
                                                             help="Include relevance scores and metadata")
-                                exact_match_only = st.checkbox("Exact Match Only", value=False,
-                                                             help="Only highlight exact query terms (no synonyms)")
                             with col2:
                                 semantic_chunking = st.checkbox("Semantic Chunking", value=True,
                                                               help="Use sentence boundaries for chunking")
-                                include_synonyms = st.checkbox("Include Synonyms", value=True,
+                                include_synonyms = st.checkbox("Include Synonyms", value=False,
                                                              help="Highlight related terms and synonyms")
                                 include_related = st.checkbox("Include Related Terms", value=False,
                                                             help="Highlight semantically related words")
+                        
+                        # Override advanced settings if exact match is selected
+                        if exact_match_only:
+                            use_advanced = False
+                            include_synonyms = False
+                            include_related = False
                         
                         # Use enhanced search with highlighting
                         results = st.session_state.agent.search_with_highlights(

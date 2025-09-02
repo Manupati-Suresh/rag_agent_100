@@ -201,6 +201,36 @@ class TextHighlighter:
     
     def highlight_keywords(self, text: str, query: str, style: str = 'primary') -> str:
         """
+        Basic keyword highlighting - EXACT MATCH ONLY
+        """
+        # Extract only basic keywords (no NLP expansion)
+        basic_keywords = self._extract_keywords(query)
+        
+        highlighted_text = text
+        already_highlighted = set()
+        
+        # Highlight only exact query terms
+        for keyword in basic_keywords:
+            # Skip if already highlighted
+            if keyword.lower() in already_highlighted:
+                continue
+            
+            # Use primary style for exact matches
+            current_style = self.highlight_styles['primary']
+            
+            # Case-insensitive highlighting with word boundaries, avoiding existing highlights
+            pattern = re.compile(r'\b' + re.escape(keyword) + r'\b(?![^<]*</mark>)', re.IGNORECASE)
+            if pattern.search(highlighted_text):
+                highlighted_text = pattern.sub(
+                    f'<mark style="{current_style}">{keyword}</mark>',
+                    highlighted_text
+                )
+                already_highlighted.add(keyword.lower())
+        
+        return highlighted_text
+    
+    def highlight_keywords_enhanced(self, text: str, query: str, style: str = 'primary') -> str:
+        """
         Enhanced keyword highlighting with phrase detection and multiple styles
         """
         # Extract enhanced keywords and phrases
