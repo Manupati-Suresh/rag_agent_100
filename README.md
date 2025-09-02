@@ -5,6 +5,10 @@ A powerful Retrieval-Augmented Generation (RAG) agent that can store up to 100 d
 ## Features
 
 - 🔍 **Semantic Search**: Uses sentence transformers for meaningful document retrieval
+- 🤖 **AI-Powered Generation**: Integrated with Google Gemini 2.5 Flash for intelligent responses
+- 💬 **Conversational AI**: Chat with your documents using natural language
+- ❓ **Question Answering**: Get specific answers from your document collection
+- 📄 **AI Summaries**: Generate comprehensive summaries of document topics
 - 🎯 **Smart Highlighting**: Shows only relevant excerpts with keyword highlighting
 - 📚 **Permanent Storage**: Automatically saves up to 100 documents with persistent storage
 - 📁 **File Browser**: Browse and select documents from your computer
@@ -12,7 +16,7 @@ A powerful Retrieval-Augmented Generation (RAG) agent that can store up to 100 d
 - 📄 **Multiple Formats**: Supports TXT, PDF, DOCX, JSON, and Markdown files
 - 🤖 **Enhanced RAG**: Uses highlighted snippets instead of full documents
 - 🔄 **Duplicate Detection**: Prevents storing identical content
-- 🌐 **Web Interface**: Enhanced Streamlit UI with highlighting and file management
+- 🌐 **Web Interface**: Enhanced Streamlit UI with AI chat and file management
 - 💻 **CLI Tools**: Command-line interface for document management
 - 📊 **Relevance Scoring**: Combines semantic and TF-IDF similarity for better results
 - 🎨 **Advanced Highlighting**: NLP-powered keyword extraction with multiple styles
@@ -20,6 +24,14 @@ A powerful Retrieval-Augmented Generation (RAG) agent that can store up to 100 d
 - ⚡ **Performance Optimized**: Caching and batch processing for faster results
 
 ## Installation
+
+### Prerequisites
+
+1. **Google API Key**: Get your free API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. **Environment Setup**: Create a `.env` file in the project root:
+```bash
+GOOGLE_API_KEY=your_api_key_here
+```
 
 ### Option 1: Automatic Setup (Recommended)
 
@@ -91,6 +103,60 @@ snippet = highlighter.create_contextual_snippet(text, query)
 - **Phrase**: Multi-word phrases (purple background with border)
 
 See `HIGHLIGHTING_IMPROVEMENTS.md` for detailed technical documentation.
+
+## 🤖 AI-Powered Features (Gemini Integration)
+
+The RAG agent now includes powerful AI capabilities using Google Gemini 2.5 Flash:
+
+### Key AI Features
+- **Conversational Chat**: Natural language conversations with your documents
+- **Question Answering**: Get specific answers with multiple response styles
+- **Document Summaries**: AI-generated summaries of document topics
+- **Enhanced RAG**: Context-aware responses using retrieved document snippets
+
+### AI Usage Examples
+
+```python
+from rag_agent import RAGAgent
+
+# Initialize with Gemini integration
+agent = RAGAgent()
+
+# Chat with your documents
+chat_response = agent.chat_with_documents(
+    "Tell me about renewable energy benefits",
+    conversation_history=[]
+)
+
+# Ask specific questions
+answer = agent.ask_question(
+    "What are the main types of solar panels?",
+    response_style='comprehensive'  # or 'concise', 'analytical', 'practical'
+)
+
+# Generate document summaries
+summary = agent.generate_summary(
+    "artificial intelligence applications",
+    top_k=5
+)
+
+# Enhanced RAG with AI generation
+response = agent.generate_enhanced_response(
+    "machine learning algorithms",
+    use_llm=True
+)
+```
+
+### Response Styles
+- **Comprehensive**: Detailed answers with examples and explanations
+- **Concise**: Brief, direct answers focusing on key points
+- **Analytical**: Examines different aspects and implications
+- **Practical**: Focuses on actionable insights and applications
+
+### Setup Requirements
+1. Get your free API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Add to `.env` file: `GOOGLE_API_KEY=your_api_key_here`
+3. The system automatically initializes Gemini on startup
 
 ## 🔧 Troubleshooting
 

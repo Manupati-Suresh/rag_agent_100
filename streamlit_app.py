@@ -156,7 +156,7 @@ def main():
         st.caption("Documents are automatically saved")
     
     # Main content tabs
-    tab1, tab2, tab3, tab4, tab5 = st.tabs(["🔍 Search", "📁 Browse & Add", "📚 Document Library", "🎨 Highlighting Demo", "ℹ️ Help"])
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["🔍 Search", "🤖 AI Chat", "📁 Browse & Add", "📚 Document Library", "🎨 Highlighting Demo", "ℹ️ Help"])
     
     with tab1:
         # Search interface
@@ -302,6 +302,146 @@ def main():
                             st.error(f"Response generation error: {str(e)}")
     
     with tab2:
+        # AI Chat Tab - Gemini Integration
+        st.subheader("🤖 AI-Powered Document Chat")
+        
+        # Check Gemini status
+        model_status = st.session_state.agent.get_model_status()
+        
+        if not model_status['gemini_available']:
+            st.error("🚫 Gemini AI is not available")
+            if not model_status['api_key_configured']:
+                st.info("Please add your GOOGLE_API_KEY to the .env file")
+            else:
+                st.info("There was an issue initializing Gemini. Check your API key.")
+            return
+        
+        # Show Gemini status
+        with st.expander("🔧 AI Model Status", expanded=False):
+            col1, col2 = st.columns(2)
+            with col1:
+                st.success("✅ Gemini Available")
+                st.info(f"Model: {model_status['model_name']}")
+            with col2:
+                st.success("✅ API Key Configured")
+        
+        if not st.session_state.initialized:
+            st.info("Please add documents and initialize the search index first")
+        else:
+            # Chat interface
+            st.markdown("### 💬 Chat with Your Documents")
+            
+            # Initialize chat history
+            if 'chat_history' not in st.session_state:
+                st.session_state.chat_history = []
+            
+            # Display chat history
+            for i, chat in enumerate(st.session_state.chat_history):
+                with st.chat_message("user"):
+                    st.write(chat['user'])
+                with st.chat_message("assistant"):
+                    st.write(chat['assistant'])
+            
+            # Chat input
+            user_message = st.chat_input("Ask a question about your documents...")
+            
+            if user_message:
+                # Add user message to chat
+                with st.chat_message("user"):
+                    st.write(user_message)
+                
+                # Generate AI response
+                with st.chat_message("assistant"):
+                    with st.spinner("Thinking..."):
+                        chat_response = st.session_state.agent.chat_with_documents(
+                            user_message, 
+                            st.session_state.chat_history[-3:] if st.session_state.chat_history else None
+                        )
+                        
+                        if chat_response.get('success'):
+                            st.write(chat_response['assistant_response'])
+                            
+                            # Add to chat history
+                            st.session_state.chat_history.append({
+                                'user': user_message,
+                                'assistant': chat_response['assistant_response']
+                            })
+                            
+                            # Show sources used
+                            if chat_response.get('sources_used', 0) > 0:
+                                st.caption(f"📚 Based on {chat_response['sources_used']} relevant documents")
+                        else:
+                            st.error(f"Error: {chat_response.get('error', 'Unknown error')}")
+            
+            # Clear chat button
+            if st.session_state.chat_history:
+                if st.button("🗑️ Clear Chat History"):
+                    st.session_state.chat_history = []
+                    st.rerun()
+            
+            st.markdown("---")
+            
+            # Question Answering Section
+            st.markdown("### ❓ Ask Specific Questions")
+            
+            col1, col2 = st.columns([3, 1])
+            with col1:
+                question = st.text_input(
+                    "Ask a specific question:",
+                    placeholder="What are the main benefits of renewable energy?"
+                )
+            with col2:
+                response_style = st.selectbox(
+                    "Response Style:",
+                    ["comprehensive", "concise", "analytical", "practical"]
+                )
+            
+            if question:
+                with st.spinner("Generating answer..."):
+                    answer = st.session_state.agent.ask_question(
+                        question, 
+                        top_k=3, 
+                        response_style=response_style
+                    )
+                    
+                    if answer.get('success'):
+                        st.markdown("#### 💡 Answer:")
+                        st.write(answer['answer'])
+                        
+                        # Show sources
+                        with st.expander(f"📖 Sources ({answer['source_count']} documents)", expanded=False):
+                            for source in answer['sources']:
+                                st.write(f"• **Document {source['rank']}**: {source['document_id']} (Score: {source['score']:.3f})")
+                    else:
+                        st.error(f"Error: {answer.get('error', 'Unknown error')}")
+            
+            st.markdown("---")
+            
+            # Document Summary Section
+            st.markdown("### 📄 Generate Document Summaries")
+            
+            col1, col2 = st.columns([3, 1])
+            with col1:
+                summary_topic = st.text_input(
+                    "Topic for summary:",
+                    placeholder="artificial intelligence applications"
+                )
+            with col2:
+                summary_docs = st.selectbox("Documents to analyze:", [3, 5, 7, 10], index=1)
+            
+            if summary_topic:
+                if st.button("📋 Generate Summary"):
+                    with st.spinner("Generating summary..."):
+                        summary = st.session_state.agent.generate_summary(summary_topic, top_k=summary_docs)
+                        
+                        if summary.get('success'):
+                            st.markdown("#### 📋 Summary:")
+                            st.write(summary['summary'])
+                            st.caption(f"📚 Based on {summary['source_documents']} documents")
+                        else:
+                            st.error(f"Error: {summary.get('error', 'Unknown error')}")
+    
+    with tab3:
         st.subheader("📁 Browse and Add Documents")
         
         # Directory browser
@@ -349,7 +489,7 @@ def main():
                     if results['errors'] > 0:
                         st.error(f"Failed to process {results['errors']} files")
     
-    with tab3:
+    with tab4:
         st.subheader("📚 Document Library")
         
         if stats['total_documents'] > 0:
@@ -392,7 +532,7 @@ def main():
         else:
             st.info("No documents stored yet. Use the 'Browse & Add' tab to add documents.")
     
-    with tab4:
+    with tab5:
         st.subheader("🎨 Highlighting Demo & Settings")
         
         # Demo section
@@ -518,7 +658,7 @@ def main():
         - 📝 **Contextual snippets** with relevance metadata
         """)
     
-    with tab5:
+    with tab6:
         st.subheader("ℹ️ Help & Information")
         
         st.markdown("""
