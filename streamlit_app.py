@@ -177,21 +177,47 @@ def main():
             if query:
                 with st.spinner("Searching documents..."):
                     try:
-                        results = st.session_state.agent.search(query, top_k)
+                        # Use enhanced search with highlighting
+                        results = st.session_state.agent.search_with_highlights(query, top_k, snippet_length=400)
                         
                         if results:
-                            st.success(f"Found {len(results)} relevant documents")
+                            st.success(f"Found {len(results)} relevant document excerpts")
                             
-                            # Display results
+                            # Display enhanced results
                             for result in results:
                                 with st.expander(
                                     f"📄 Rank {result['rank']}: {result['document_id']} "
                                     f"(Similarity: {result['score']:.3f})"
                                 ):
-                                    st.write(f"**Content:** {result['content']}")
+                                    # Show highlighted snippet
+                                    st.markdown("**🎯 Relevant Excerpt:**")
+                                    st.markdown(result['highlighted_snippet'], unsafe_allow_html=True)
+                                    
+                                    # Show relevant sentences if available
+                                    if result['relevant_sentences']:
+                                        st.markdown("**📝 Key Sentences:**")
+                                        for i, sentence in enumerate(result['relevant_sentences'], 1):
+                                            highlighted_sentence = st.session_state.agent.text_highlighter.highlight_keywords(sentence, query)
+                                            st.markdown(f"{i}. {highlighted_sentence}", unsafe_allow_html=True)
+                                    
+                                    # Show relevant chunks info
+                                    if result['relevant_chunks']:
+                                        st.markdown("**📊 Relevance Scores:**")
+                                        for i, chunk in enumerate(result['relevant_chunks'], 1):
+                                            st.write(f"Chunk {i}: Relevance {chunk['relevance_score']:.3f}")
+                                    
+                                    # Metadata
                                     if result['metadata']:
-                                        st.write(f"**File:** {result['metadata'].get('filename', 'N/A')}")
-                                        st.write(f"**Type:** {result['metadata'].get('file_type', 'N/A')}")
+                                        st.markdown("**📁 File Info:**")
+                                        col1, col2 = st.columns(2)
+                                        with col1:
+                                            st.write(f"**File:** {result['metadata'].get('filename', 'N/A')}")
+                                        with col2:
+                                            st.write(f"**Type:** {result['metadata'].get('file_type', 'N/A')}")
+                                    
+                                    # Option to view full document
+                                    if st.button(f"View Full Document", key=f"full_{result['rank']}"):
+                                        st.text_area("Full Content", result['full_content'], height=200)
                         else:
                             st.warning("No relevant documents found")
                             
@@ -202,16 +228,23 @@ def main():
                 st.markdown("---")
                 st.subheader("🤖 RAG Response")
                 
-                if st.button("Generate RAG Response"):
-                    with st.spinner("Generating response..."):
+                if st.button("Generate Enhanced RAG Response"):
+                    with st.spinner("Generating enhanced response..."):
                         try:
-                            response = st.session_state.agent.generate_response(query, top_k=3)
+                            response = st.session_state.agent.generate_enhanced_response(query, top_k=3)
                             
                             st.write("**Query:**", response['query'])
                             st.write("**Summary:**", response['summary'])
                             
-                            st.write("**Context from Retrieved Documents:**")
-                            st.text_area("Context", response['context'], height=200)
+                            st.markdown("**🎯 Context from Relevant Excerpts:**")
+                            st.markdown(response['context'], unsafe_allow_html=True)
+                            
+                            # Show detailed breakdown
+                            with st.expander("📊 Detailed Source Breakdown"):
+                                for result in response['enhanced_results']:
+                                    st.markdown(f"**{result['document_id']}** (Score: {result['score']:.3f})")
+                                    st.markdown(result['highlighted_snippet'], unsafe_allow_html=True)
+                                    st.markdown("---")
                             
                         except Exception as e:
                             st.error(f"Response generation error: {str(e)}")

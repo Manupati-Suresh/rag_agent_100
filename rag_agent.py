@@ -1,5 +1,6 @@
 from document_store import DocumentStore
 from document_loader import DocumentLoader
+from text_highlighter import TextHighlighter
 from typing import List, Dict
 import json
 
@@ -10,6 +11,7 @@ class RAGAgent:
     
     def __init__(self, model_name: str = 'all-MiniLM-L6-v2', storage_path: str = 'document_storage'):
         self.document_store = DocumentStore(model_name, storage_path)
+        self.text_highlighter = TextHighlighter(model_name)
         self.is_initialized = False
         self.storage_path = storage_path
         
@@ -191,3 +193,71 @@ class RAGAgent:
             'file_type': doc['metadata'].get('file_type', 'unknown'),
             'file_size': doc['metadata'].get('file_size', 0)
         } for doc in self.document_store.documents]
+    
+    def search_with_highlights(self, query: str, top_k: int = 5, snippet_length: int = 300) -> List[Dict]:
+        """
+        Enhanced search that returns only relevant highlighted portions of documents
+        """
+        if not self.is_initialized:
+            raise ValueError("Agent not initialized. Call initialize() first")
+            
+        # Get basic search results
+        results = self.document_store.search(query, top_k)
+        
+        # Enhance each result with highlighted snippets
+        enhanced_results = []
+        for result in results:
+            # Extract relevant chunks from the document
+            relevant_chunks = self.text_highlighter.extract_relevant_chunks(
+                result['content'], query, chunk_size=200, top_chunks=2
+            )
+            
+            # Create highlighted snippet
+            snippet = self.text_highlighter.create_snippet(
+                result['content'], query, max_length=snippet_length
+            )
+            
+            # Extract sentences around keywords
+            relevant_sentences = self.text_highlighter.extract_sentences_around_keywords(
+                result['content'], query, context_sentences=1
+            )
+            
+            enhanced_result = {
+                'rank': result['rank'],
+                'score': result['score'],
+                'document_id': result['document_id'],
+                'highlighted_snippet': snippet,
+                'relevant_chunks': relevant_chunks,
+                'relevant_sentences': relevant_sentences[:3],  # Limit to 3 sentences
+                'metadata': result['metadata'],
+                'full_content': result['content']  # Keep full content for reference
+            }
+            
+            enhanced_results.append(enhanced_result)
+        
+        return enhanced_results
+    
+    def generate_enhanced_response(self, query: str, top_k: int = 3) -> Dict:
+        """
+        Generate RAG response using highlighted snippets instead of full documents
+        """
+        # Get enhanced search results
+        enhanced_results = self.search_with_highlights(query, top_k, snippet_length=200)
+        
+        # Create context from highlighted snippets
+        context_parts = []
+        for result in enhanced_results:
+            context_parts.append(f"Document {result['rank']} ({result['document_id']}):")
+            context_parts.append(result['highlighted_snippet'])
+            context_parts.append("")  # Empty line for separation
+        
+        context = "\n".join(context_parts)
+        
+        response = {
+            'query': query,
+            'enhanced_results': enhanced_results,
+            'context': context,
+            'summary': f"Found {len(enhanced_results)} relevant document excerpts for your query: '{query}'"
+        }
+        
+        return response

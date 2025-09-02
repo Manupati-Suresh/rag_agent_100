@@ -1,0 +1,18 @@
+{
+  "total_documents": 3,
+  "document_list": [
+    {
+      "id": "machine_learning_guide.txt",
+      "added_date": "2025-09-02T15:18:51.940095"
+    },
+    {
+      "id": "python_programming.txt",
+      "added_date": "2025-09-02T15:18:51.940143"
+    },
+    {
+      "id": "data_science_overview.txt",
+      "added_date": "2025-09-02T15:18:51.940158"
+    }
+  ],
+  "saved_date": "2025-09-02T15:18:51.942237"
+}
