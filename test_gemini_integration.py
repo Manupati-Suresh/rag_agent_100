@@ -5,6 +5,10 @@ Quick test script for Gemini integration
 
 from rag_agent import RAGAgent
 import os
+from dotenv import load_dotenv
+
+# Ensure environment variables are loaded
+load_dotenv()
 
 def test_gemini_integration():
     print("🧪 Testing Gemini Integration")
@@ -36,6 +40,12 @@ def test_gemini_integration():
         print("\n2. Loading sample documents...")
         agent.load_documents()
         agent.initialize()
+    else:
+        print(f"\n2. Using existing collection ({len(agent.document_store.documents)} documents)")
+        # Make sure index is built
+        if not hasattr(agent.document_store, 'index') or agent.document_store.index is None:
+            print("   Building search index...")
+            agent.initialize()
     
     # Test basic LLM response
     print("\n3. Testing basic LLM response...")

@@ -5,6 +5,11 @@ Comprehensive example showcasing Gemini integration with RAG Agent
 
 from rag_agent import RAGAgent
 import json
+import os
+from dotenv import load_dotenv
+
+# Ensure environment variables are loaded
+load_dotenv()
 
 def main():
     print("🚀 RAG Agent with Gemini 2.5 Flash - Complete Example")

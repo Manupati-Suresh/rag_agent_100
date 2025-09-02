@@ -5,6 +5,11 @@ Demo script showcasing Gemini 2.5 Flash integration with RAG Agent
 
 from rag_agent import RAGAgent
 import json
+import os
+from dotenv import load_dotenv
+
+# Ensure environment variables are loaded
+load_dotenv()
 
 def main():
     print("🚀 RAG Agent with Gemini 2.5 Flash Integration Demo")
@@ -31,6 +36,10 @@ def main():
         agent.initialize()
     else:
         print(f"\n2. Using existing document collection ({len(agent.document_store.documents)} documents)")
+        # Make sure index is built
+        if not hasattr(agent.document_store, 'index') or agent.document_store.index is None:
+            print("   Building search index...")
+            agent.initialize()
     
     # Demo queries
     demo_queries = [
