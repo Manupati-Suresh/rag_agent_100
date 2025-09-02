@@ -1,0 +1,22 @@
+{
+  "total_documents": 4,
+  "document_list": [
+    {
+      "id": "ai_overview.txt",
+      "added_date": "2025-09-02T14:17:00.640345"
+    },
+    {
+      "id": "python_guide.txt",
+      "added_date": "2025-09-02T14:17:00.640488"
+    },
+    {
+      "id": "data_science.txt",
+      "added_date": "2025-09-02T14:17:00.640514"
+    },
+    {
+      "id": "README.md",
+      "added_date": "2025-09-02T14:17:01.984985"
+    }
+  ],
+  "saved_date": "2025-09-02T14:17:01.990396"
+}
