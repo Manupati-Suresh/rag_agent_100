@@ -33,6 +33,19 @@ def initialize_agent():
     elif len(st.session_state.agent.document_store.documents) == 0:
         st.warning("No documents loaded. Please add documents first.")
 
+def ensure_index_built():
+    """Ensure the search index is built for AI operations"""
+    if not hasattr(st.session_state.agent.document_store, 'index') or st.session_state.agent.document_store.index is None:
+        if len(st.session_state.agent.document_store.documents) > 0:
+            with st.spinner("Building search index..."):
+                st.session_state.agent.initialize()
+                st.session_state.initialized = True
+            return True
+        else:
+            st.error("No documents available. Please add documents first.")
+            return False
+    return True
+
 def browse_directory():
     """Browse directory for files"""
     directory = st.text_input("Enter directory path:", value=os.getcwd())
@@ -328,6 +341,10 @@ def main():
         if not st.session_state.initialized:
             st.info("Please add documents and initialize the search index first")
         else:
+            # Ensure search index is built for AI features
+            if not ensure_index_built():
+                return
+            
             # Chat interface
             st.markdown("### 💬 Chat with Your Documents")
             
@@ -353,10 +370,17 @@ def main():
                 # Generate AI response
                 with st.chat_message("assistant"):
                     with st.spinner("Thinking..."):
-                        chat_response = st.session_state.agent.chat_with_documents(
-                            user_message, 
-                            st.session_state.chat_history[-3:] if st.session_state.chat_history else None
-                        )
+                        try:
+                            chat_response = st.session_state.agent.chat_with_documents(
+                                user_message, 
+                                st.session_state.chat_history[-3:] if st.session_state.chat_history else None
+                            )
+                        except ValueError as e:
+                            if "Index not built" in str(e):
+                                st.error("Search index not ready. Please initialize the agent first.")
+                                chat_response = {'success': False, 'error': 'Index not built'}
+                            else:
+                                chat_response = {'success': False, 'error': str(e)}
                         
                         if chat_response.get('success'):
                             st.write(chat_response['assistant_response'])
@@ -398,11 +422,18 @@ def main():
             
             if question:
                 with st.spinner("Generating answer..."):
-                    answer = st.session_state.agent.ask_question(
-                        question, 
-                        top_k=3, 
-                        response_style=response_style
-                    )
+                    try:
+                        answer = st.session_state.agent.ask_question(
+                            question, 
+                            top_k=3, 
+                            response_style=response_style
+                        )
+                    except ValueError as e:
+                        if "Index not built" in str(e):
+                            st.error("Search index not ready. Please initialize the agent first.")
+                            answer = {'success': False, 'error': 'Index not built'}
+                        else:
+                            answer = {'success': False, 'error': str(e)}
                     
                     if answer.get('success'):
                         st.markdown("#### 💡 Answer:")
@@ -432,7 +463,14 @@ def main():
             if summary_topic:
                 if st.button("📋 Generate Summary"):
                     with st.spinner("Generating summary..."):
-                        summary = st.session_state.agent.generate_summary(summary_topic, top_k=summary_docs)
+                        try:
+                            summary = st.session_state.agent.generate_summary(summary_topic, top_k=summary_docs)
+                        except ValueError as e:
+                            if "Index not built" in str(e):
+                                st.error("Search index not ready. Please initialize the agent first.")
+                                summary = {'success': False, 'error': 'Index not built'}
+                            else:
+                                summary = {'success': False, 'error': str(e)}
                         
                         if summary.get('success'):
                             st.markdown("#### 📋 Summary:")
