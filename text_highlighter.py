@@ -20,12 +20,12 @@ class TextHighlighter:
     Enhanced text highlighter with advanced NLP features and performance optimizations
     """
     
-    def __init__(self, model_name: str = 'all-MiniLM-L6-v2'):
+    def __init__(self, model_name: str = 'all-MiniLM-L6-v2', auto_setup_nltk: bool = True):
         self.model = SentenceTransformer(model_name)
         self.tfidf = TfidfVectorizer(stop_words='english', max_features=1000)
         
         # Initialize NLTK components (download if needed)
-        self._init_nltk()
+        self._init_nltk(auto_setup_nltk)
         
         # Cache for expensive operations
         self._embedding_cache = {}
@@ -41,27 +41,80 @@ class TextHighlighter:
             'phrase': 'background-color: #f3e5f5; padding: 2px 4px; border-radius: 3px; border-left: 3px solid #9c27b0;'
         }
     
-    def _init_nltk(self):
+    def _init_nltk(self, auto_setup: bool = True):
         """Initialize NLTK components"""
         try:
             import nltk
-            # Download required NLTK data
-            nltk.download('punkt', quiet=True)
-            nltk.download('stopwords', quiet=True)
-            nltk.download('wordnet', quiet=True)
-            nltk.download('averaged_perceptron_tagger', quiet=True)
             
-            from nltk.corpus import stopwords
-            from nltk.stem import WordNetLemmatizer
-            from nltk.tokenize import word_tokenize, sent_tokenize
-            
-            self.nltk_stopwords = set(stopwords.words('english'))
-            self.lemmatizer = WordNetLemmatizer()
-            self.word_tokenize = word_tokenize
-            self.sent_tokenize = sent_tokenize
-            self.nltk_available = True
+            # Try to import required components first
+            try:
+                from nltk.corpus import stopwords
+                from nltk.stem import WordNetLemmatizer
+                from nltk.tokenize import word_tokenize, sent_tokenize
+                
+                # Test if they work
+                test_stops = stopwords.words('english')
+                test_lemmatizer = WordNetLemmatizer()
+                test_tokens = word_tokenize("test sentence")
+                test_sentences = sent_tokenize("Test sentence. Another sentence.")
+                
+                # If we get here, everything works
+                self.nltk_stopwords = set(test_stops)
+                self.lemmatizer = test_lemmatizer
+                self.word_tokenize = word_tokenize
+                self.sent_tokenize = sent_tokenize
+                self.nltk_available = True
+                print("✅ NLTK initialized successfully with all components")
+                return
+                
+            except Exception as e:
+                if auto_setup:
+                    print(f"⚠️ NLTK data missing. Attempting to download... Error: {str(e)}")
+                    
+                    # Download required NLTK data
+                    resources_to_download = [
+                        'punkt', 'punkt_tab', 'stopwords', 'wordnet', 
+                        'averaged_perceptron_tagger', 'averaged_perceptron_tagger_eng',
+                        'omw-1.4'
+                    ]
+                    
+                    for resource in resources_to_download:
+                        try:
+                            nltk.download(resource, quiet=True)
+                        except:
+                            pass
+                    
+                    # Try again after download
+                    try:
+                        from nltk.corpus import stopwords
+                        from nltk.stem import WordNetLemmatizer
+                        from nltk.tokenize import word_tokenize, sent_tokenize
+                        
+                        self.nltk_stopwords = set(stopwords.words('english'))
+                        self.lemmatizer = WordNetLemmatizer()
+                        self.word_tokenize = word_tokenize
+                        self.sent_tokenize = sent_tokenize
+                        
+                        # Test again
+                        test_tokens = word_tokenize("test sentence")
+                        test_sentences = sent_tokenize("Test sentence. Another sentence.")
+                        
+                        self.nltk_available = True
+                        print("✅ NLTK initialized successfully after download")
+                        return
+                        
+                    except Exception as e2:
+                        print(f"⚠️ NLTK still not working after download: {str(e2)}")
+                
+                # If we get here, NLTK is not working
+                print("ℹ️ Using basic text processing (NLTK unavailable)")
+                self.nltk_available = False
+                
         except ImportError:
-            print("NLTK not available. Using basic text processing.")
+            print("ℹ️ NLTK not installed. Using basic text processing.")
+            self.nltk_available = False
+        except Exception as e:
+            print(f"⚠️ NLTK initialization failed: {str(e)}. Using basic text processing.")
             self.nltk_available = False
     
     def _get_enhanced_stop_words(self) -> Set[str]:
@@ -528,7 +581,7 @@ class TextHighlighter:
         
         if self.nltk_available:
             # Use NLTK for advanced processing
-            tokens = self.word_tokenize(query.lower())
+            tokens = self._tokenize_words(query)
             
             # POS tagging to identify important word types
             try:
@@ -544,7 +597,10 @@ class TextHighlighter:
                         importance = self._calculate_word_importance(word, pos)
                         
                         # Lemmatize the word
-                        lemmatized = self.lemmatizer.lemmatize(word)
+                        try:
+                            lemmatized = self.lemmatizer.lemmatize(word)
+                        except:
+                            lemmatized = word
                         
                         enhanced_keywords.append({
                             'word': word,
@@ -553,7 +609,8 @@ class TextHighlighter:
                             'importance': importance,
                             'is_expanded': False
                         })
-            except:
+            except Exception as e:
+                print(f"⚠️ POS tagging failed: {str(e)}. Using basic extraction.")
                 # Fallback to basic extraction
                 for word in tokens:
                     if len(word) > 2 and word not in self.stop_words and word.isalpha():
@@ -561,14 +618,14 @@ class TextHighlighter:
                             'word': word,
                             'lemmatized': word,
                             'pos': 'UNKNOWN',
-                            'importance': 0.5,
+                            'importance': 0.6,  # Slightly higher than basic
                             'is_expanded': False
                         })
         else:
             # Basic extraction without NLTK
-            words = re.findall(r'\b\w+\b', query.lower())
-            for word in words:
-                if len(word) > 2 and word not in self.stop_words:
+            tokens = self._tokenize_words(query)
+            for word in tokens:
+                if len(word) > 2 and word not in self.stop_words and word.isalpha():
                     enhanced_keywords.append({
                         'word': word,
                         'lemmatized': word,
@@ -594,7 +651,7 @@ class TextHighlighter:
         if self.nltk_available:
             try:
                 import nltk
-                tokens = self.word_tokenize(query)
+                tokens = self._tokenize_words(query)
                 pos_tags = nltk.pos_tag(tokens)
                 
                 # Simple noun phrase extraction
@@ -610,7 +667,8 @@ class TextHighlighter:
                 # Don't forget the last phrase
                 if len(current_phrase) > 1:
                     phrases.append(' '.join(current_phrase))
-            except:
+            except Exception as e:
+                print(f"⚠️ Phrase extraction failed: {str(e)}")
                 pass
         
         # Remove duplicates and filter
@@ -762,7 +820,7 @@ class TextHighlighter:
         
         try:
             # Split into sentences
-            sentences = self.sent_tokenize(text)
+            sentences = self._split_into_sentences(text)
             
             current_chunk = ""
             current_start = 0
@@ -776,7 +834,7 @@ class TextHighlighter:
                         'start_pos': current_start,
                         'end_pos': current_start + len(current_chunk),
                         'length': len(current_chunk.strip()),
-                        'sentence_count': len(self.sent_tokenize(current_chunk))
+                        'sentence_count': len(self._split_into_sentences(current_chunk))
                     })
                     
                     # Start new chunk with overlap
@@ -797,10 +855,11 @@ class TextHighlighter:
                     'start_pos': current_start,
                     'end_pos': current_start + len(current_chunk),
                     'length': len(current_chunk.strip()),
-                    'sentence_count': len(self.sent_tokenize(current_chunk))
+                    'sentence_count': len(self._split_into_sentences(current_chunk))
                 })
         
         except Exception as e:
+            print(f"⚠️ Semantic chunking failed: {str(e)}. Using character-based chunking.")
             # Fallback to character-based chunking
             return self._create_chunks(text, target_size, overlap)
         
@@ -808,6 +867,23 @@ class TextHighlighter:
     
     def _split_into_sentences(self, text: str) -> List[str]:
         """Split text into sentences"""
-        # Simple sentence splitting
+        if self.nltk_available:
+            try:
+                return self.sent_tokenize(text)
+            except:
+                pass
+        
+        # Fallback: Simple sentence splitting
         sentences = re.split(r'[.!?]+', text)
         return [s.strip() for s in sentences if s.strip()]
+    
+    def _tokenize_words(self, text: str) -> List[str]:
+        """Tokenize text into words"""
+        if self.nltk_available:
+            try:
+                return self.word_tokenize(text.lower())
+            except:
+                pass
+        
+        # Fallback: Simple word tokenization
+        return re.findall(r'\b\w+\b', text.lower())

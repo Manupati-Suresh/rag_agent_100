@@ -33,6 +33,11 @@ setup.bat
 python setup.py
 ```
 
+**Setup NLTK Data (if needed):**
+```bash
+python setup_nltk.py
+```
+
 ### Option 2: Manual Installation
 
 1. Clone the repository:
@@ -49,7 +54,7 @@ pip install -r requirements.txt
 ### Requirements
 - Python 3.8 or higher
 - 2GB+ RAM (for embedding models)
-- Internet connection (for downloading models)
+- Internet connection (for downloading models and NLTK data)
 
 ## 🎨 Enhanced Highlighting System
 
@@ -86,6 +91,33 @@ snippet = highlighter.create_contextual_snippet(text, query)
 - **Phrase**: Multi-word phrases (purple background with border)
 
 See `HIGHLIGHTING_IMPROVEMENTS.md` for detailed technical documentation.
+
+## 🔧 Troubleshooting
+
+### NLTK Data Issues
+If you encounter NLTK-related errors:
+
+1. **Run the NLTK setup script:**
+   ```bash
+   python setup_nltk.py
+   ```
+
+2. **Manual NLTK data download:**
+   ```python
+   import nltk
+   nltk.download('punkt')
+   nltk.download('punkt_tab')
+   nltk.download('stopwords')
+   nltk.download('wordnet')
+   nltk.download('averaged_perceptron_tagger')
+   ```
+
+3. **Fallback mode:** The system automatically falls back to basic text processing if NLTK is unavailable.
+
+### Common Issues
+- **Memory errors**: Reduce `top_k` parameter in search
+- **Slow performance**: Enable caching by running the same query multiple times
+- **Missing highlights**: Check if query keywords match document content
 
 ## Quick Start
 

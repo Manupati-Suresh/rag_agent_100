@@ -1,5 +1,14 @@
 {
-  "total_documents": 0,
-  "document_list": [],
-  "saved_date": "2025-09-02T14:48:56.381414"
+  "total_documents": 2,
+  "document_list": [
+    {
+      "id": "ESG_Disclosure_Handbook.pdf",
+      "added_date": "2025-09-02T15:48:29.491749"
+    },
+    {
+      "id": "FN17_SCGHow to Guide.pdf",
+      "added_date": "2025-09-02T15:48:29.492527"
+    }
+  ],
+  "saved_date": "2025-09-02T15:48:29.495045"
 }
