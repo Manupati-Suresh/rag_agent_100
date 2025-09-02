@@ -194,7 +194,9 @@ class RAGAgent:
             'file_size': doc['metadata'].get('file_size', 0)
         } for doc in self.document_store.documents]
     
-    def search_with_highlights(self, query: str, top_k: int = 5, snippet_length: int = 300) -> List[Dict]:
+    def search_with_highlights(self, query: str, top_k: int = 5, snippet_length: int = 300,
+                             use_advanced_highlighting: bool = True,
+                             include_contextual_info: bool = True) -> List[Dict]:
         """
         Enhanced search that returns only relevant highlighted portions of documents
         """
@@ -207,28 +209,54 @@ class RAGAgent:
         # Enhance each result with highlighted snippets
         enhanced_results = []
         for result in results:
-            # Extract relevant chunks from the document
+            # Extract relevant chunks from the document with enhanced features
             relevant_chunks = self.text_highlighter.extract_relevant_chunks(
-                result['content'], query, chunk_size=200, top_chunks=2
+                result['content'], query, chunk_size=200, top_chunks=2, use_semantic_chunking=True
             )
             
-            # Create highlighted snippet
-            snippet = self.text_highlighter.create_snippet(
-                result['content'], query, max_length=snippet_length
-            )
+            # Create enhanced snippet
+            if include_contextual_info:
+                contextual_snippet = self.text_highlighter.create_contextual_snippet(
+                    result['content'], query, max_length=snippet_length
+                )
+                snippet = contextual_snippet['snippet']
+                snippet_info = {
+                    'relevance_score': contextual_snippet['relevance_score'],
+                    'keyword_count': contextual_snippet['keyword_count'],
+                    'has_more_content': contextual_snippet['has_more_content']
+                }
+            else:
+                snippet = self.text_highlighter.create_snippet(
+                    result['content'], query, max_length=snippet_length,
+                    use_advanced_highlighting=use_advanced_highlighting
+                )
+                snippet_info = {}
             
             # Extract sentences around keywords
             relevant_sentences = self.text_highlighter.extract_sentences_around_keywords(
                 result['content'], query, context_sentences=1
             )
             
+            # Apply advanced highlighting to sentences
+            if use_advanced_highlighting:
+                highlighted_sentences = [
+                    self.text_highlighter.highlight_keywords_advanced(sentence, query)
+                    for sentence in relevant_sentences[:3]
+                ]
+            else:
+                highlighted_sentences = [
+                    self.text_highlighter.highlight_keywords(sentence, query)
+                    for sentence in relevant_sentences[:3]
+                ]
+            
             enhanced_result = {
                 'rank': result['rank'],
                 'score': result['score'],
                 'document_id': result['document_id'],
                 'highlighted_snippet': snippet,
+                'snippet_info': snippet_info,
                 'relevant_chunks': relevant_chunks,
-                'relevant_sentences': relevant_sentences[:3],  # Limit to 3 sentences
+                'relevant_sentences': highlighted_sentences,
                 'metadata': result['metadata'],
                 'full_content': result['content']  # Keep full content for reference
             }

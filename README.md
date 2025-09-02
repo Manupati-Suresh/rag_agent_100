@@ -15,6 +15,9 @@ A powerful Retrieval-Augmented Generation (RAG) agent that can store up to 100 d
 - 🌐 **Web Interface**: Enhanced Streamlit UI with highlighting and file management
 - 💻 **CLI Tools**: Command-line interface for document management
 - 📊 **Relevance Scoring**: Combines semantic and TF-IDF similarity for better results
+- 🎨 **Advanced Highlighting**: NLP-powered keyword extraction with multiple styles
+- 🧠 **Smart Text Processing**: Semantic chunking and contextual snippets
+- ⚡ **Performance Optimized**: Caching and batch processing for faster results
 
 ## Installation
 
@@ -47,6 +50,42 @@ pip install -r requirements.txt
 - Python 3.8 or higher
 - 2GB+ RAM (for embedding models)
 - Internet connection (for downloading models)
+
+## 🎨 Enhanced Highlighting System
+
+The RAG agent now features a sophisticated highlighting system with advanced NLP capabilities:
+
+### Key Improvements
+- **NLP-Powered Extraction**: Uses NLTK for POS tagging and linguistic analysis
+- **Multiple Highlighting Styles**: Different visual styles for different term types
+- **Phrase Detection**: Identifies and highlights multi-word phrases
+- **Synonym Expansion**: Includes related terms and synonyms (when available)
+- **Semantic Chunking**: Uses sentence boundaries for better context preservation
+- **Performance Caching**: LRU cache for repeated queries
+- **Contextual Snippets**: Rich metadata with relevance scores
+
+### Highlighting Features
+```python
+# Enhanced keyword extraction
+keywords = highlighter._extract_enhanced_keywords("machine learning")
+# Returns: [{'word': 'machine', 'importance': 0.85, 'pos': 'NN'}]
+
+# Advanced highlighting with synonyms
+highlighted = highlighter.highlight_keywords_advanced(
+    text, query, include_synonyms=True, include_related=True
+)
+
+# Contextual snippets with metadata
+snippet = highlighter.create_contextual_snippet(text, query)
+# Returns: {'snippet': '...', 'relevance_score': 0.85, 'keyword_count': 5}
+```
+
+### Visual Styles
+- **Primary**: High-importance keywords (yellow background, bold)
+- **Secondary**: Medium-importance terms (light blue background)
+- **Phrase**: Multi-word phrases (purple background with border)
+
+See `HIGHLIGHTING_IMPROVEMENTS.md` for detailed technical documentation.
 
 ## Quick Start
 

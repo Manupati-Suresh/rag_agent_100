@@ -156,7 +156,7 @@ def main():
         st.caption("Documents are automatically saved")
     
     # Main content tabs
-    tab1, tab2, tab3, tab4 = st.tabs(["🔍 Search", "📁 Browse & Add", "📚 Document Library", "ℹ️ Help"])
+    tab1, tab2, tab3, tab4, tab5 = st.tabs(["🔍 Search", "📁 Browse & Add", "📚 Document Library", "🎨 Highlighting Demo", "ℹ️ Help"])
     
     with tab1:
         # Search interface
@@ -165,7 +165,7 @@ def main():
         else:
             st.subheader("🔍 Semantic Search")
             
-            col1, col2 = st.columns([3, 1])
+            col1, col2, col3 = st.columns([3, 1, 1])
             with col1:
                 query = st.text_input(
                     "Enter your search query:",
@@ -173,12 +173,30 @@ def main():
                 )
             with col2:
                 top_k = st.selectbox("Results to show:", [3, 5, 10], index=1)
+            with col3:
+                snippet_length = st.selectbox("Snippet length:", [200, 300, 400], index=1)
             
             if query:
                 with st.spinner("Searching documents..."):
                     try:
+                        # Add highlighting options
+                        with st.expander("🎨 Highlighting Options", expanded=False):
+                            col1, col2 = st.columns(2)
+                            with col1:
+                                use_advanced = st.checkbox("Advanced Highlighting", value=True, 
+                                                         help="Use NLP-based highlighting with synonyms")
+                                include_context = st.checkbox("Contextual Info", value=True,
+                                                            help="Include relevance scores and metadata")
+                            with col2:
+                                semantic_chunking = st.checkbox("Semantic Chunking", value=True,
+                                                              help="Use sentence boundaries for chunking")
+                        
                         # Use enhanced search with highlighting
-                        results = st.session_state.agent.search_with_highlights(query, top_k, snippet_length=400)
+                        results = st.session_state.agent.search_with_highlights(
+                            query, top_k, snippet_length=snippet_length,
+                            use_advanced_highlighting=use_advanced,
+                            include_contextual_info=include_context
+                        )
                         
                         if results:
                             st.success(f"Found {len(results)} relevant document excerpts")
@@ -231,6 +249,13 @@ def main():
                 if st.button("Generate Enhanced RAG Response"):
                     with st.spinner("Generating enhanced response..."):
                         try:
+                            # Add highlighting options
+                            col1, col2 = st.columns(2)
+                            with col1:
+                                use_advanced = st.checkbox("Use Advanced Highlighting", value=True)
+                            with col2:
+                                include_context = st.checkbox("Include Contextual Info", value=True)
+                            
                             response = st.session_state.agent.generate_enhanced_response(query, top_k=3)
                             
                             st.write("**Query:**", response['query'])
@@ -239,10 +264,22 @@ def main():
                             st.markdown("**🎯 Context from Relevant Excerpts:**")
                             st.markdown(response['context'], unsafe_allow_html=True)
                             
-                            # Show detailed breakdown
+                            # Show detailed breakdown with enhanced features
                             with st.expander("📊 Detailed Source Breakdown"):
                                 for result in response['enhanced_results']:
                                     st.markdown(f"**{result['document_id']}** (Score: {result['score']:.3f})")
+                                    
+                                    # Show snippet info if available
+                                    if 'snippet_info' in result and result['snippet_info']:
+                                        info = result['snippet_info']
+                                        col1, col2, col3 = st.columns(3)
+                                        with col1:
+                                            st.metric("Relevance", f"{info.get('relevance_score', 0):.3f}")
+                                        with col2:
+                                            st.metric("Keywords", info.get('keyword_count', 0))
+                                        with col3:
+                                            st.write("More content" if info.get('has_more_content', False) else "Complete")
+                                    
                                     st.markdown(result['highlighted_snippet'], unsafe_allow_html=True)
                                     st.markdown("---")
                             
@@ -341,6 +378,132 @@ def main():
             st.info("No documents stored yet. Use the 'Browse & Add' tab to add documents.")
     
     with tab4:
+        st.subheader("🎨 Highlighting Demo & Settings")
+        
+        # Demo section
+        st.markdown("### Interactive Highlighting Demo")
+        
+        # Sample text for demo
+        demo_text = st.text_area(
+            "Sample text for highlighting demo:",
+            value="""Machine learning is a powerful subset of artificial intelligence that enables computers to learn and improve from experience without being explicitly programmed. The core concept involves algorithms that can identify patterns in data and make predictions or decisions based on those patterns. There are three main types of machine learning: supervised learning, unsupervised learning, and reinforcement learning. Deep learning, a subset of machine learning, uses neural networks with multiple layers to model and understand complex patterns in data.""",
+            height=150
+        )
+        
+        demo_query = st.text_input(
+            "Enter query to highlight:",
+            value="machine learning algorithms neural networks",
+            placeholder="e.g., 'deep learning patterns' or 'artificial intelligence'"
+        )
+        
+        if demo_text and demo_query:
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.markdown("**Basic Highlighting:**")
+                try:
+                    basic_highlight = st.session_state.agent.text_highlighter.highlight_keywords(demo_text, demo_query)
+                    st.markdown(basic_highlight, unsafe_allow_html=True)
+                except Exception as e:
+                    st.error(f"Error: {str(e)}")
+            
+            with col2:
+                st.markdown("**Advanced Highlighting:**")
+                try:
+                    advanced_highlight = st.session_state.agent.text_highlighter.highlight_keywords_advanced(
+                        demo_text, demo_query, include_synonyms=True, include_related=True
+                    )
+                    st.markdown(advanced_highlight, unsafe_allow_html=True)
+                except Exception as e:
+                    st.error(f"Error: {str(e)}")
+        
+        # Keyword analysis
+        st.markdown("---")
+        st.markdown("### Keyword Analysis")
+        
+        if demo_query:
+            try:
+                # Basic keywords
+                basic_keywords = st.session_state.agent.text_highlighter._extract_keywords(demo_query)
+                
+                # Enhanced keywords
+                enhanced_keywords = st.session_state.agent.text_highlighter._extract_enhanced_keywords(demo_query)
+                
+                # Phrases
+                phrases = st.session_state.agent.text_highlighter._extract_phrases(demo_query)
+                
+                col1, col2, col3 = st.columns(3)
+                
+                with col1:
+                    st.markdown("**Basic Keywords:**")
+                    for kw in basic_keywords:
+                        st.write(f"• {kw}")
+                
+                with col2:
+                    st.markdown("**Enhanced Keywords:**")
+                    for kw in enhanced_keywords:
+                        st.write(f"• {kw['word']} ({kw['importance']:.2f})")
+                
+                with col3:
+                    st.markdown("**Detected Phrases:**")
+                    for phrase in phrases:
+                        st.write(f"• {phrase}")
+                        
+            except Exception as e:
+                st.error(f"Keyword analysis error: {str(e)}")
+        
+        # Chunking comparison
+        st.markdown("---")
+        st.markdown("### Chunking Comparison")
+        
+        if demo_text and demo_query:
+            try:
+                # Basic chunking
+                basic_chunks = st.session_state.agent.text_highlighter.extract_relevant_chunks(
+                    demo_text, demo_query, chunk_size=150, use_semantic_chunking=False
+                )
+                
+                # Semantic chunking
+                semantic_chunks = st.session_state.agent.text_highlighter.extract_relevant_chunks(
+                    demo_text, demo_query, chunk_size=150, use_semantic_chunking=True
+                )
+                
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    st.markdown("**Basic Chunking:**")
+                    st.write(f"Found {len(basic_chunks)} chunks")
+                    if basic_chunks:
+                        st.write(f"Top chunk score: {basic_chunks[0]['relevance_score']:.3f}")
+                        st.text_area("Top chunk:", basic_chunks[0]['text'], height=100)
+                
+                with col2:
+                    st.markdown("**Semantic Chunking:**")
+                    st.write(f"Found {len(semantic_chunks)} chunks")
+                    if semantic_chunks:
+                        st.write(f"Top chunk score: {semantic_chunks[0]['relevance_score']:.3f}")
+                        st.text_area("Top chunk:", semantic_chunks[0]['text'], height=100)
+                        
+            except Exception as e:
+                st.error(f"Chunking comparison error: {str(e)}")
+        
+        # Performance info
+        st.markdown("---")
+        st.markdown("### Performance Features")
+        
+        st.markdown("""
+        **Enhanced Highlighting Features:**
+        - 🧠 **NLP-based keyword extraction** with POS tagging
+        - 🔍 **Phrase detection** for multi-word terms
+        - 📊 **Importance scoring** based on linguistic analysis
+        - 🎯 **Semantic chunking** using sentence boundaries
+        - 🚀 **Performance caching** for repeated queries
+        - 🎨 **Multiple highlighting styles** for different term types
+        - 🔗 **Synonym and related term** expansion (when NLTK available)
+        - 📝 **Contextual snippets** with relevance metadata
+        """)
+    
+    with tab5:
         st.subheader("ℹ️ Help & Information")
         
         st.markdown("""
