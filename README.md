@@ -5,12 +5,14 @@ A powerful Retrieval-Augmented Generation (RAG) agent that can store up to 100 d
 ## Features
 
 - 🔍 **Semantic Search**: Uses sentence transformers for meaningful document retrieval
-- 📚 **Document Storage**: Efficiently stores and indexes up to 100 documents
+- 📚 **Permanent Storage**: Automatically saves up to 100 documents with persistent storage
+- 📁 **File Browser**: Browse and select documents from your computer
 - ⚡ **Fast Similarity Search**: FAISS-powered vector search for quick results
 - 📄 **Multiple Formats**: Supports TXT, PDF, DOCX, JSON, and Markdown files
 - 🎯 **RAG Capabilities**: Combines retrieval with response generation
-- 💾 **Persistence**: Save and load your document collections
-- 🌐 **Web Interface**: Streamlit-based UI for easy interaction
+- 🔄 **Duplicate Detection**: Prevents storing identical content
+- 🌐 **Web Interface**: Enhanced Streamlit UI with file management
+- 💻 **CLI Tools**: Command-line interface for document management
 
 ## Installation
 
@@ -51,20 +53,47 @@ pip install -r requirements.txt
 ```python
 from rag_agent import RAGAgent
 
-# Initialize the agent
-agent = RAGAgent()
+# Initialize the agent with persistent storage
+agent = RAGAgent(storage_path='my_documents')
 
-# Load documents (sample documents for demo)
-agent.load_documents()
+# Add documents from files
+file_paths = ['/path/to/document1.txt', '/path/to/document2.pdf']
+results = agent.add_documents_from_files(file_paths)
 
-# Build the search index
-agent.initialize()
+# Initialize search (if not already done)
+if not agent.is_initialized:
+    agent.initialize()
 
 # Search for relevant documents
 results = agent.search("machine learning algorithms", top_k=5)
 
 # Generate RAG response
 response = agent.generate_response("What is machine learning?")
+```
+
+### CLI Document Manager
+
+```bash
+# List all stored documents
+python document_manager.py list
+
+# Add documents from files
+python document_manager.py add file1.txt file2.pdf file3.docx
+
+# Search documents
+python document_manager.py search "machine learning"
+
+# Browse directory for files
+python document_manager.py browse /path/to/documents
+
+# Remove a document
+python document_manager.py remove document.txt
+
+# Clear all documents
+python document_manager.py clear
+
+# Show statistics
+python document_manager.py stats
 ```
 
 ### Web Interface
@@ -75,12 +104,16 @@ Launch the Streamlit app:
 streamlit run streamlit_app.py
 ```
 
-### Example Script
+### Example Scripts
 
-Run the example to see the agent in action:
+Run the examples to see the agent in action:
 
 ```bash
+# Basic example with sample documents
 python example_usage.py
+
+# Persistent storage demonstration
+python persistent_example.py
 ```
 
 ## Core Components
@@ -114,22 +147,24 @@ python example_usage.py
 from rag_agent import RAGAgent
 from document_loader import DocumentLoader
 
-agent = RAGAgent()
+# Initialize with persistent storage
+agent = RAGAgent(storage_path='my_documents')
 
-# Option 1: Load from directory
+# Option 1: Add documents from file paths
+file_paths = ['/path/to/doc1.txt', '/path/to/doc2.pdf']
+results = agent.add_documents_from_files(file_paths)
+
+# Option 2: Browse directory and select files
+available_files = DocumentLoader.get_supported_files('/path/to/documents')
+selected_paths = [f['filepath'] for f in available_files[:10]]  # Select first 10
+results = agent.add_documents_from_files(selected_paths)
+
+# Option 3: Load from directory (all supported files)
 agent.load_documents(directory="path/to/your/documents", max_docs=100)
 
-# Option 2: Load custom documents
-documents = [
-    {
-        'id': 'doc1',
-        'content': 'Your document content here...',
-        'metadata': {'category': 'research', 'date': '2024-01-01'}
-    }
-]
-agent.load_documents(documents=documents)
-
-agent.initialize()
+# Initialize search index
+if not agent.is_initialized:
+    agent.initialize()
 ```
 
 ### Performing Searches

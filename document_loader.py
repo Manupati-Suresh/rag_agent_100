@@ -1,9 +1,11 @@
 import os
 import json
-from typing import List, Dict
+from typing import List, Dict, Optional
 import docx
 import PyPDF2
 from io import StringIO
+import mimetypes
+from pathlib import Path
 
 class DocumentLoader:
     """
@@ -43,51 +45,86 @@ class DocumentLoader:
         return json.dumps(data, indent=2)
     
     @staticmethod
-    def load_from_directory(directory: str, max_files: int = 100) -> List[Dict]:
+    def get_supported_files(directory: str) -> List[Dict]:
         """
-        Load documents from a directory
+        Get list of supported files in directory with metadata
         """
-        documents = []
         supported_extensions = {'.txt', '.pdf', '.docx', '.json', '.md'}
+        files_info = []
         
         for root, dirs, files in os.walk(directory):
             for file in files:
-                if len(documents) >= max_files:
-                    break
-                    
                 filepath = os.path.join(root, file)
                 file_ext = os.path.splitext(file)[1].lower()
                 
                 if file_ext in supported_extensions:
                     try:
-                        if file_ext == '.txt' or file_ext == '.md':
-                            content = DocumentLoader.load_text_file(filepath)
-                        elif file_ext == '.pdf':
-                            content = DocumentLoader.load_pdf_file(filepath)
-                        elif file_ext == '.docx':
-                            content = DocumentLoader.load_docx_file(filepath)
-                        elif file_ext == '.json':
-                            content = DocumentLoader.load_json_file(filepath)
-                        else:
-                            continue
-                            
-                        documents.append({
-                            'id': file,
-                            'content': content,
-                            'metadata': {
-                                'filepath': filepath,
-                                'file_type': file_ext,
-                                'file_size': os.path.getsize(filepath)
-                            }
+                        file_size = os.path.getsize(filepath)
+                        files_info.append({
+                            'filename': file,
+                            'filepath': filepath,
+                            'extension': file_ext,
+                            'size': file_size,
+                            'size_mb': round(file_size / (1024 * 1024), 2),
+                            'relative_path': os.path.relpath(filepath, directory)
                         })
-                        
                     except Exception as e:
-                        print(f"Error loading {filepath}: {str(e)}")
-                        
-            if len(documents) >= max_files:
-                break
+                        print(f"Error accessing {filepath}: {str(e)}")
+        
+        return sorted(files_info, key=lambda x: x['filename'])
+    
+    @staticmethod
+    def load_selected_files(file_paths: List[str], max_files: int = 100) -> List[Dict]:
+        """
+        Load specific files by their paths
+        """
+        documents = []
+        
+        for filepath in file_paths[:max_files]:
+            try:
+                file_ext = os.path.splitext(filepath)[1].lower()
+                filename = os.path.basename(filepath)
+                
+                if file_ext == '.txt' or file_ext == '.md':
+                    content = DocumentLoader.load_text_file(filepath)
+                elif file_ext == '.pdf':
+                    content = DocumentLoader.load_pdf_file(filepath)
+                elif file_ext == '.docx':
+                    content = DocumentLoader.load_docx_file(filepath)
+                elif file_ext == '.json':
+                    content = DocumentLoader.load_json_file(filepath)
+                else:
+                    continue
+                
+                # Skip empty content
+                if not content.strip():
+                    print(f"Skipping empty file: {filename}")
+                    continue
+                    
+                documents.append({
+                    'id': filename,
+                    'content': content,
+                    'metadata': {
+                        'filepath': filepath,
+                        'file_type': file_ext,
+                        'file_size': os.path.getsize(filepath),
+                        'filename': filename
+                    }
+                })
+                
+            except Exception as e:
+                print(f"Error loading {filepath}: {str(e)}")
                 
         return documents
+    
+    @staticmethod
+    def load_from_directory(directory: str, max_files: int = 100) -> List[Dict]:
+        """
+        Load documents from a directory
+        """
+        supported_files = DocumentLoader.get_supported_files(directory)
+        file_paths = [f['filepath'] for f in supported_files[:max_files]]
+        return DocumentLoader.load_selected_files(file_paths, max_files)
     
     @staticmethod
     def create_sample_documents() -> List[Dict]:
