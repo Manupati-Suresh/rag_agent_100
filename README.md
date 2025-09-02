@@ -14,12 +14,35 @@ A powerful Retrieval-Augmented Generation (RAG) agent that can store up to 100 d
 
 ## Installation
 
-1. Clone or download the project files
-2. Install dependencies:
+### Option 1: Automatic Setup (Recommended)
 
+**Windows:**
+```bash
+setup.bat
+```
+
+**Linux/Mac:**
+```bash
+python setup.py
+```
+
+### Option 2: Manual Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Manupati-Suresh/rag_agent_100.git
+cd rag_agent_100
+```
+
+2. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+
+### Requirements
+- Python 3.8 or higher
+- 2GB+ RAM (for embedding models)
+- Internet connection (for downloading models)
 
 ## Quick Start
 
@@ -193,10 +216,35 @@ The RAG response can be enhanced by integrating with OpenAI, Anthropic, or other
 
 ## Troubleshooting
 
-1. **Installation Issues**: Ensure you have Python 3.8+ and pip installed
-2. **Memory Errors**: Reduce batch size or use a smaller embedding model
-3. **File Loading Errors**: Check file permissions and formats
-4. **Search Quality**: Try different embedding models or adjust similarity thresholds
+### Common Issues
+
+1. **Installation Issues**: 
+   - Ensure Python 3.8+ is installed
+   - Try: `python -m pip install --upgrade pip`
+   - Use virtual environment: `python -m venv venv && source venv/bin/activate`
+
+2. **Memory Errors**: 
+   - Reduce batch size in document processing
+   - Use smaller embedding model: `RAGAgent(model_name='all-MiniLM-L6-v2')`
+
+3. **TensorFlow/Keras Errors**:
+   - Install tf-keras: `pip install tf-keras`
+   - Set environment variable: `TF_ENABLE_ONEDNN_OPTS=0`
+
+4. **File Loading Errors**: 
+   - Check file permissions and formats
+   - Ensure files are not corrupted
+   - Try with sample documents first
+
+5. **Search Quality**: 
+   - Try different embedding models
+   - Adjust similarity thresholds
+   - Use more specific queries
+
+6. **Streamlit Issues**:
+   - Install streamlit: `pip install streamlit`
+   - Run: `streamlit run streamlit_app.py`
+   - Check port availability (default: 8501)
 
 ## License
 
