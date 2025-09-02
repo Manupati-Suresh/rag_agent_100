@@ -5,14 +5,16 @@ A powerful Retrieval-Augmented Generation (RAG) agent that can store up to 100 d
 ## Features
 
 - 🔍 **Semantic Search**: Uses sentence transformers for meaningful document retrieval
+- 🎯 **Smart Highlighting**: Shows only relevant excerpts with keyword highlighting
 - 📚 **Permanent Storage**: Automatically saves up to 100 documents with persistent storage
 - 📁 **File Browser**: Browse and select documents from your computer
 - ⚡ **Fast Similarity Search**: FAISS-powered vector search for quick results
 - 📄 **Multiple Formats**: Supports TXT, PDF, DOCX, JSON, and Markdown files
-- 🎯 **RAG Capabilities**: Combines retrieval with response generation
+- 🤖 **Enhanced RAG**: Uses highlighted snippets instead of full documents
 - 🔄 **Duplicate Detection**: Prevents storing identical content
-- 🌐 **Web Interface**: Enhanced Streamlit UI with file management
+- 🌐 **Web Interface**: Enhanced Streamlit UI with highlighting and file management
 - 💻 **CLI Tools**: Command-line interface for document management
+- 📊 **Relevance Scoring**: Combines semantic and TF-IDF similarity for better results
 
 ## Installation
 
@@ -64,11 +66,11 @@ results = agent.add_documents_from_files(file_paths)
 if not agent.is_initialized:
     agent.initialize()
 
-# Search for relevant documents
-results = agent.search("machine learning algorithms", top_k=5)
+# Search for relevant documents with highlighting
+results = agent.search_with_highlights("machine learning algorithms", top_k=5)
 
-# Generate RAG response
-response = agent.generate_response("What is machine learning?")
+# Generate enhanced RAG response with excerpts
+response = agent.generate_enhanced_response("What is machine learning?")
 ```
 
 ### CLI Document Manager
@@ -131,13 +133,19 @@ python persistent_example.py
 
 ### 3. RAGAgent (`rag_agent.py`)
 - Main agent class combining retrieval and generation
-- Semantic search functionality
-- Response generation using retrieved context
+- Enhanced semantic search with highlighting
+- Response generation using highlighted excerpts
 
-### 4. Streamlit App (`streamlit_app.py`)
-- User-friendly web interface
-- Real-time search and results display
-- Document upload capabilities
+### 4. TextHighlighter (`text_highlighter.py`)
+- Intelligent text chunk extraction
+- Keyword highlighting with HTML markup
+- Semantic + TF-IDF relevance scoring
+- Context-aware snippet generation
+
+### 5. Streamlit App (`streamlit_app.py`)
+- User-friendly web interface with highlighting
+- Real-time search with visual keyword emphasis
+- Document upload and management capabilities
 
 ## Usage Examples
 
@@ -167,29 +175,67 @@ if not agent.is_initialized:
     agent.initialize()
 ```
 
-### Performing Searches
+### Performing Enhanced Searches
 
 ```python
-# Simple search
-results = agent.search("artificial intelligence", top_k=5)
+# Enhanced search with highlighting
+results = agent.search_with_highlights("artificial intelligence", top_k=5, snippet_length=300)
 
-# Access results
+# Access enhanced results
 for result in results:
     print(f"Document: {result['document_id']}")
     print(f"Similarity: {result['score']:.3f}")
-    print(f"Content: {result['content']}")
+    print(f"Highlighted Snippet: {result['highlighted_snippet']}")
+    print(f"Relevant Sentences: {result['relevant_sentences']}")
+    print(f"Relevance Chunks: {len(result['relevant_chunks'])}")
 ```
 
-### RAG Response Generation
+### Enhanced RAG Response Generation
 
 ```python
-# Generate contextual response
-response = agent.generate_response("Explain machine learning", top_k=3)
+# Generate enhanced response with highlighted excerpts
+response = agent.generate_enhanced_response("Explain machine learning", top_k=3)
 
 print(f"Query: {response['query']}")
 print(f"Summary: {response['summary']}")
-print(f"Context: {response['context']}")
+print(f"Enhanced Context: {response['context']}")  # Contains highlighted snippets
+print(f"Source Details: {len(response['enhanced_results'])} excerpts")
 ```
+
+## Text Highlighting & Extraction
+
+### Smart Snippet Extraction
+The system intelligently extracts only the most relevant portions of documents:
+
+```python
+# Extract relevant chunks with scoring
+chunks = agent.text_highlighter.extract_relevant_chunks(
+    text, query, chunk_size=200, top_chunks=3
+)
+
+# Create highlighted snippet
+snippet = agent.text_highlighter.create_snippet(
+    text, query, max_length=300
+)
+
+# Get sentences around keywords
+sentences = agent.text_highlighter.extract_sentences_around_keywords(
+    text, query, context_sentences=2
+)
+```
+
+### Highlighting Features
+- **Keyword Highlighting**: Visual emphasis on matching terms
+- **Relevance Scoring**: Combines semantic and TF-IDF similarity
+- **Context Preservation**: Maintains sentence boundaries
+- **Snippet Generation**: Creates concise, relevant excerpts
+- **HTML Markup**: Ready for web display with styling
+
+### Benefits
+- **Focused Results**: Only relevant portions shown
+- **Faster Reading**: Highlighted keywords for quick scanning
+- **Better Context**: Maintains meaning while being concise
+- **Improved UX**: Visual emphasis guides attention
 
 ## Configuration
 
@@ -206,7 +252,9 @@ agent = RAGAgent(model_name='all-mpnet-base-v2')
 
 ### Search Parameters
 - `top_k`: Number of results to return (default: 5)
-- Similarity threshold can be adjusted in the code
+- `snippet_length`: Maximum length of extracted snippets (default: 300)
+- `chunk_size`: Size of text chunks for analysis (default: 200)
+- `context_sentences`: Sentences around keywords (default: 2)
 
 ## File Structure
 
