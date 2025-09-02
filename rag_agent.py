@@ -196,7 +196,10 @@ class RAGAgent:
     
     def search_with_highlights(self, query: str, top_k: int = 5, snippet_length: int = 300,
                              use_advanced_highlighting: bool = True,
-                             include_contextual_info: bool = True) -> List[Dict]:
+                             include_contextual_info: bool = True,
+                             exact_match_only: bool = False,
+                             include_synonyms: bool = True,
+                             include_related: bool = False) -> List[Dict]:
         """
         Enhanced search that returns only relevant highlighted portions of documents
         """
@@ -214,10 +217,17 @@ class RAGAgent:
                 result['content'], query, chunk_size=200, top_chunks=2, use_semantic_chunking=True
             )
             
-            # Create enhanced snippet
-            if include_contextual_info:
+            # Create enhanced snippet based on options
+            if exact_match_only:
+                snippet = self.text_highlighter.create_snippet(
+                    result['content'], query, max_length=snippet_length,
+                    use_advanced_highlighting=False
+                )
+                snippet_info = {}
+            elif include_contextual_info:
                 contextual_snippet = self.text_highlighter.create_contextual_snippet(
-                    result['content'], query, max_length=snippet_length
+                    result['content'], query, max_length=snippet_length,
+                    include_synonyms=include_synonyms, include_related=include_related
                 )
                 snippet = contextual_snippet['snippet']
                 snippet_info = {
@@ -228,7 +238,8 @@ class RAGAgent:
             else:
                 snippet = self.text_highlighter.create_snippet(
                     result['content'], query, max_length=snippet_length,
-                    use_advanced_highlighting=use_advanced_highlighting
+                    use_advanced_highlighting=use_advanced_highlighting,
+                    include_synonyms=include_synonyms, include_related=include_related
                 )
                 snippet_info = {}
             
@@ -237,10 +248,17 @@ class RAGAgent:
                 result['content'], query, context_sentences=1
             )
             
-            # Apply advanced highlighting to sentences
-            if use_advanced_highlighting:
+            # Apply highlighting to sentences based on options
+            if exact_match_only:
                 highlighted_sentences = [
-                    self.text_highlighter.highlight_keywords_advanced(sentence, query)
+                    self.text_highlighter.highlight_keywords(sentence, query)
+                    for sentence in relevant_sentences[:3]
+                ]
+            elif use_advanced_highlighting:
+                highlighted_sentences = [
+                    self.text_highlighter.highlight_keywords_advanced(
+                        sentence, query, include_synonyms=include_synonyms, include_related=include_related
+                    )
                     for sentence in relevant_sentences[:3]
                 ]
             else:

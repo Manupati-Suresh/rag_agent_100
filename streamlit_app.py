@@ -187,15 +187,24 @@ def main():
                                                          help="Use NLP-based highlighting with synonyms")
                                 include_context = st.checkbox("Contextual Info", value=True,
                                                             help="Include relevance scores and metadata")
+                                exact_match_only = st.checkbox("Exact Match Only", value=False,
+                                                             help="Only highlight exact query terms (no synonyms)")
                             with col2:
                                 semantic_chunking = st.checkbox("Semantic Chunking", value=True,
                                                               help="Use sentence boundaries for chunking")
+                                include_synonyms = st.checkbox("Include Synonyms", value=True,
+                                                             help="Highlight related terms and synonyms")
+                                include_related = st.checkbox("Include Related Terms", value=False,
+                                                            help="Highlight semantically related words")
                         
                         # Use enhanced search with highlighting
                         results = st.session_state.agent.search_with_highlights(
                             query, top_k, snippet_length=snippet_length,
                             use_advanced_highlighting=use_advanced,
-                            include_contextual_info=include_context
+                            include_contextual_info=include_context,
+                            exact_match_only=exact_match_only,
+                            include_synonyms=include_synonyms,
+                            include_related=include_related
                         )
                         
                         if results:

@@ -327,7 +327,8 @@ class TextHighlighter:
         return result
     
     def create_snippet(self, text: str, query: str, max_length: int = 300,
-                      style: str = 'primary', use_advanced_highlighting: bool = True) -> str:
+                      style: str = 'primary', use_advanced_highlighting: bool = True,
+                      include_synonyms: bool = True, include_related: bool = False) -> str:
         """
         Create an intelligent snippet highlighting the most relevant parts
         """
@@ -355,7 +356,9 @@ class TextHighlighter:
         
         # Apply highlighting
         if use_advanced_highlighting:
-            highlighted_text = self.highlight_keywords_advanced(combined_text, query)
+            highlighted_text = self.highlight_keywords_advanced(
+                combined_text, query, include_synonyms=include_synonyms, include_related=include_related
+            )
         else:
             highlighted_text = self.highlight_keywords(combined_text, query, style)
         
@@ -367,7 +370,8 @@ class TextHighlighter:
         
         return snippet.strip()
     
-    def create_contextual_snippet(self, text: str, query: str, max_length: int = 400) -> Dict:
+    def create_contextual_snippet(self, text: str, query: str, max_length: int = 400,
+                                include_synonyms: bool = True, include_related: bool = False) -> Dict:
         """
         Create a rich snippet with context information
         """
@@ -378,7 +382,9 @@ class TextHighlighter:
         best_passage = self._find_best_passage(text, enhanced_keywords, max_length)
         
         # Create highlighted snippet
-        highlighted_snippet = self.highlight_keywords_advanced(best_passage['text'], query)
+        highlighted_snippet = self.highlight_keywords_advanced(
+            best_passage['text'], query, include_synonyms=include_synonyms, include_related=include_related
+        )
         
         # Extract key sentences
         key_sentences = self.extract_sentences_around_keywords(text, query, context_sentences=1)
