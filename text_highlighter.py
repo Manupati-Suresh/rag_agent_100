@@ -199,6 +199,13 @@ class TextHighlighter:
         
         return chunks[:top_chunks]
     
+    def highlight_text(self, text: str, query: str, max_length: int = 500) -> str:
+        """
+        Main highlighting method used by RAG agent
+        Creates a highlighted snippet of the text based on the query
+        """
+        return self.create_snippet(text, query, max_length=max_length, use_advanced_highlighting=False)
+    
     def highlight_keywords(self, text: str, query: str, style: str = 'primary') -> str:
         """
         Basic keyword highlighting - EXACT MATCH ONLY
