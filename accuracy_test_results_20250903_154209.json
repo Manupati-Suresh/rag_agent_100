@@ -1,0 +1,220 @@
+{
+  "overall_accuracy": 0.6911309523809523,
+  "target_accuracy": 0.9,
+  "accuracy_achieved": "False",
+  "total_questions": 13,
+  "total_time": 158.80852127075195,
+  "average_response_time": 12.21356435922476,
+  "category_breakdown": {
+    "esg_basic": {
+      "average_accuracy": 0.706111111111111,
+      "weight": 0.2,
+      "weighted_score": 0.14122222222222222
+    },
+    "esg_intermediate": {
+      "average_accuracy": 0.6297936507936508,
+      "weight": 0.25,
+      "weighted_score": 0.1574484126984127
+    },
+    "esg_analytical": {
+      "average_accuracy": 0.7365079365079366,
+      "weight": 0.25,
+      "weighted_score": 0.18412698412698414
+    },
+    "esg_procedural": {
+      "average_accuracy": 0.5583333333333333,
+      "weight": 0.15,
+      "weighted_score": 0.08375
+    },
+    "esg_advanced": {
+      "average_accuracy": 0.8305555555555555,
+      "weight": 0.15,
+      "weighted_score": 0.12458333333333332
+    }
+  },
+  "detailed_results": [
+    {
+      "question_id": 1,
+      "question": "What is ESG?",
+      "category": "esg_basic",
+      "difficulty": "intermediate",
+      "expected_answer": "['environmental', 'social', 'governance', 'ESG', 'sustainability', 'responsibility', 'framework']",
+      "generated_answer": "Okay, let's break down ESG.\n\n**Definition:** ESG stands for Environmental, Social, and Governance. It represents a set of standards used to evaluate a company's impact and performance beyond traditional financial metrics. Essentially, it's a way of looking at how a company interacts with the world and manages its responsibilities.\n\n**Key Components:**\n\n*   **Environmental:** This component concerns a company's impact on the natural world. Examples include:\n    *   Carbon emissions and climate change\n    *   Resource depletion (water, raw materials)\n    *   Waste management and pollution\n    *   Biodiversity and deforestation\n\n*   **Social:** This component examines a company's relationships with people. Examples include:\n    *   Labor practices (fair wages, safe working conditions)\n    *   Human rights\n    *   Diversity and inclusion\n    *   Community relations\n    *   Product safety and consumer protection\n\n*   **Governance:** This component focuses on a company's leadership, ethics, and internal controls. Examples include:\n    *   Board structure and independence\n    *   Executive compensation\n    *   Shareholder rights\n    *   Business ethics and anti-corruption policies\n    *   Risk management\n\n**How It Works:**\n\nCompanies implement ESG programs to address their environmental, social, and governance impacts. They then disclose information about their ESG performance, often in reports, to allow stakeholders (investors, customers, employees, etc.) to assess their performance. Investors may use ESG factors as part of their analysis to make investment decisions. Strong ESG performance can be seen as an indicator of a well-managed and responsible company, which may lead to better long-term financial performance.\n\n**Examples:**\n\n*   **Environmental:** A company might report on its efforts to reduce its carbon footprint through renewable energy investments or energy efficiency improvements.\n*   **Social:** A company might report on its diversity and inclusion initiatives, detailing the representation of women and minorities in leadership positions.\n*   **Governance:** A company might disclose its board of directors' diversity, the number of independent directors, and its policies on executive compensation.\n\n**Relationships:**\n\nESG is closely related to:\n\n*   **Corporate Social Responsibility (CSR):** CSR is a broader concept that encompasses a company's ethical and philanthropic activities. ESG provides a more structured and measurable framework for assessing a company's social responsibility.\n*   **Sustainability:** Sustainability refers to meeting the needs of the present without compromising the ability of future generations to meet their own needs. ESG is a key tool for measuring and managing a company's sustainability performance.\n*   **Corporate Governance:** Corporate governance is a critical component of ESG, focusing on the structures and processes that ensure a company is managed ethically and in the best interests of its stakeholders. The Society for Corporate Governance focuses on supporting corporate boards of directors and the executive managements on corporate governance and disclosure matters (FN17_SCGHow to Guide.pdf).\n*   **Financial Performance:** Increasingly, ESG factors are being linked to financial performance. Investors believe that companies with strong ESG practices are better positioned for long-term success and are less likely to face regulatory fines, reputational damage, or operational disruptions.\n\n**Summary:**\n\nESG provides a framework for evaluating a company's performance beyond traditional financial metrics by considering its environmental, social, and governance impacts. It is used by investors, customers, and other stakeholders to assess a company's sustainability, ethical behavior, and long-term value. ESG disclosure allows stakeholders to make informed decisions.\n",
+      "accuracy_score": 0.9333333333333332,
+      "response_time": 16.261853218078613,
+      "sources_count": 2,
+      "confidence_score": 0.6851803213357925,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:39:46.981463"
+    },
+    {
+      "question_id": 2,
+      "question": "What are ESG disclosures?",
+      "category": "esg_basic",
+      "difficulty": "intermediate",
+      "expected_answer": "['disclosures', 'reporting', 'transparency', 'ESG', 'stakeholders', 'information', 'performance']",
+      "generated_answer": "ESG disclosures involve reporting environmental, social, and governance information.\n\nThe \"ESG Disclosure Handbook\" generally discusses the purpose, objectives, and process of ESG disclosure. It addresses key questions such as why, for whom, where, what, and how ESG information should be reported, prepared, and presented. The \"ESG Implementation Guide: Getting Started\" also provides perspectives, guidelines, and practical tools to help companies launch ESG programs and develop disclosures.\n",
+      "accuracy_score": 0.6250000000000001,
+      "response_time": 10.03461480140686,
+      "sources_count": 2,
+      "confidence_score": 0.7650599703192711,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:39:57.017999"
+    },
+    {
+      "question_id": 3,
+      "question": "Why are ESG programs important?",
+      "category": "esg_basic",
+      "difficulty": "intermediate",
+      "expected_answer": "['programs', 'important', 'benefits', 'ESG', 'risk management', 'reputation', 'compliance']",
+      "generated_answer": "ESG programs are important because they address environmental, social, and governance issues within a company.\n\nThe documents provided discuss ESG disclosures and implementation but do not explicitly detail the importance of ESG *programs*. However, the fact that guides and handbooks are being created for ESG disclosure and implementation suggests a growing importance and focus on these issues within the corporate world.\n",
+      "accuracy_score": 0.56,
+      "response_time": 11.055288314819336,
+      "sources_count": 2,
+      "confidence_score": 0.6769951246678829,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:40:08.074988"
+    },
+    {
+      "question_id": 4,
+      "question": "How do companies implement ESG programs?",
+      "category": "esg_intermediate",
+      "difficulty": "intermediate",
+      "expected_answer": "['implement', 'companies', 'programs', 'ESG', 'strategy', 'framework', 'management']",
+      "generated_answer": "While the provided documents mention ESG programs and disclosures, neither document outlines a step-by-step procedure for *implementing* ESG programs. Therefore, I cannot answer your question with the information provided.\n",
+      "accuracy_score": 0.4326666666666667,
+      "response_time": 10.645900964736938,
+      "sources_count": 2,
+      "confidence_score": 0.6940021504958471,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:40:18.723832"
+    },
+    {
+      "question_id": 5,
+      "question": "What are the key components of ESG reporting?",
+      "category": "esg_intermediate",
+      "difficulty": "intermediate",
+      "expected_answer": "['components', 'reporting', 'ESG', 'key', 'metrics', 'standards', 'disclosure']",
+      "generated_answer": "- The key components of ESG reporting involve answering several key questions, as outlined in the \"ESG Disclosure Handbook.\"\n\n- Supporting Details:\n  - Key Question 1: Why report ESG information? This involves understanding the motivations and benefits behind ESG reporting (Document 1).\n  - Key Question 2: For whom should ESG information be reported? This focuses on identifying the target audience for ESG disclosures, such as investors and stakeholders (Document 1).\n  - Key Question 3: Where should ESG information be reported? This addresses the appropriate channels and platforms for disseminating ESG data (Document 1).\n  - Key Question 4: What ESG information should be reported? This determines the specific ESG metrics and topics to be included in the report (Document 1).\n  - Key Question 5: How should ESG information be prepared and presented? This covers the methodology and format of ESG reporting (Document 1).\n\n- While the \"ESG Implementation Guide: Getting Started\" discusses implementing ESG programs and developing disclosures, the \"ESG Disclosure Handbook\" specifically structures its content around key questions that effectively cover the main components of ESG reporting.\n",
+      "accuracy_score": 0.875,
+      "response_time": 11.940862894058228,
+      "sources_count": 2,
+      "confidence_score": 0.7537711709737778,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:40:30.666817"
+    },
+    {
+      "question_id": 6,
+      "question": "How do ESG factors affect business performance?",
+      "category": "esg_intermediate",
+      "difficulty": "intermediate",
+      "expected_answer": "['factors', 'affect', 'business', 'performance', 'impact', 'value', 'sustainability']",
+      "generated_answer": "I am sorry, but the provided documents do not contain information about how ESG factors affect business performance. Therefore, I cannot answer your question.\n",
+      "accuracy_score": 0.5817142857142857,
+      "response_time": 10.27681589126587,
+      "sources_count": 2,
+      "confidence_score": 0.5991071328520775,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:40:40.945385"
+    },
+    {
+      "question_id": 7,
+      "question": "Compare environmental and social aspects of ESG",
+      "category": "esg_analytical",
+      "difficulty": "intermediate",
+      "expected_answer": "['environmental', 'social', 'compare', 'aspects', 'differences', 'similarities', 'impact']",
+      "generated_answer": "```json\n{\n  \"analysis\": {\n    \"Key Points\": [\n      \"Environmental Aspects of ESG\",\n      \"Social Aspects of ESG\"\n    ],\n    \"Evidence\": {\n      \"Environmental Aspects of ESG\": [\n        {\n          \"document_id\": \"FN17_SCGHow to Guide.pdf\",\n          \"text\": \"environmental programs\",\n          \"context\": \"Perspectives, guidelines, and practical tools to help companies launch environmental, social, and governance (ESG) programs and develop disclosures\"\n        }\n      ],\n      \"Social Aspects of ESG\": [\n        {\n          \"document_id\": \"FN17_SCGHow to Guide.pdf\",\n          \"text\": \"social programs\",\n          \"context\": \"Perspectives, guidelines, and practical tools to help companies launch environmental, social, and governance (ESG) programs and develop disclosures\"\n        }\n      ]\n    },\n    \"Comparison\": \"Both documents address environmental and social aspects as part of the broader ESG framework. Document FN17_SCGHow to Guide.pdf explicitly mentions 'environmental' and 'social' programs. Document ESG_Disclosure_Handbook.pdf is more general but provides the rationale for reporting ESG information and considering stakeholder needs, which implicitly covers both environmental and social dimensions.\",\n    \"Analysis\": \"The limited information available doesn't allow for a detailed comparison of specific environmental versus social aspects. However, it's clear from both documents that both environmental and social considerations are integral components of ESG. Document FN17_SCGHow to Guide.pdf implies a practical approach, detailing how companies can launch related programs.  Document ESG_Disclosure_Handbook.pdf, in its purpose and objectives, suggests that reporting these aspects is crucial for accountability and stakeholder engagement.\",\n    \"Conclusion\": \"Both documents highlight the importance of environmental and social considerations in ESG. However, without more granular data, a deep dive is impossible. The FN17_SCGHow to Guide.pdf is action-oriented and mentions the launch of environmental and social programs, while the ESG_Disclosure_Handbook.pdf provides the reason and overview for ESG reporting.\"\n  }\n}\n```",
+      "accuracy_score": 0.5857142857142857,
+      "response_time": 13.411404848098755,
+      "sources_count": 2,
+      "confidence_score": 0.6993333175778389,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:40:54.360759"
+    },
+    {
+      "question_id": 8,
+      "question": "What are the advantages and challenges of ESG implementation?",
+      "category": "esg_analytical",
+      "difficulty": "intermediate",
+      "expected_answer": "['advantages', 'challenges', 'implementation', 'ESG', 'benefits', 'obstacles', 'solutions']",
+      "generated_answer": "While the provided documents (\"ESG_Disclosure_Handbook.pdf\" and \"FN17_SCGHow to Guide.pdf\") discuss ESG disclosure and implementation broadly, they do not explicitly list the advantages and challenges of ESG implementation in a structured way. To answer your question, I would need a document that directly addresses the pros and cons of implementing ESG programs.\n",
+      "accuracy_score": 0.6666666666666667,
+      "response_time": 10.24092721939087,
+      "sources_count": 2,
+      "confidence_score": 0.6809761747717857,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:41:04.603158"
+    },
+    {
+      "question_id": 9,
+      "question": "How does ESG reporting benefit different stakeholders?",
+      "category": "esg_analytical",
+      "difficulty": "intermediate",
+      "expected_answer": "['reporting', 'benefit', 'stakeholders', 'ESG', 'investors', 'customers', 'employees']",
+      "generated_answer": "Here's an analysis of how ESG reporting benefits different stakeholders, based on the provided documents:\n\n- Direct Answer:\nThe documents directly address why to report ESG information and for whom it should be reported, implying benefits for various stakeholders. However, the documents do not explicitly detail how each stakeholder benefits.\n\n- Supporting Details and Explanations:\n  - Document 1 (ESG Disclosure Handbook) raises the key question: \"why report ESG information?\" This implies that reporting ESG information provides benefits.\n\n  - Document 1 also asks: \"for whom should ESG information be reported?\" which means ESG reports are relevant to specific stakeholders.\n\n  - Document 2 (ESG Implementation Guide) indicates that the Society for Corporate Governance's members (corporate secretaries, in-house counsel, etc.) support corporate boards and executive management on governance and disclosure matters, including ESG, suggesting that these parties find value in ESG reporting.\n\n- Limitations:\n  - The documents do not provide a detailed breakdown of specific benefits for each stakeholder group (e.g., investors, employees, customers, communities).\n\nIn conclusion, while the documents highlight the importance of ESG reporting and identify relevant stakeholders, they don't offer a comprehensive explanation of the specific benefits that each stakeholder group receives.\n",
+      "accuracy_score": 0.9571428571428571,
+      "response_time": 12.897420883178711,
+      "sources_count": 2,
+      "confidence_score": 0.7690957337617874,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:41:17.502828"
+    },
+    {
+      "question_id": 10,
+      "question": "How to start an ESG program in a company?",
+      "category": "esg_procedural",
+      "difficulty": "intermediate",
+      "expected_answer": "['start', 'program', 'company', 'ESG', 'steps', 'planning', 'implementation']",
+      "generated_answer": "The provided documents do not contain explicit step-by-step instructions on how to start an ESG program. They primarily focus on the importance of ESG disclosures, key questions to consider when reporting ESG information, and introductory information about the Society for Corporate Governance. Therefore, I cannot provide a procedural response to this question.\n",
+      "accuracy_score": 0.5666666666666667,
+      "response_time": 10.6486074924469,
+      "sources_count": 2,
+      "confidence_score": 0.7002333700656891,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:41:28.154934"
+    },
+    {
+      "question_id": 11,
+      "question": "Steps to create effective ESG disclosures",
+      "category": "esg_procedural",
+      "difficulty": "intermediate",
+      "expected_answer": "['steps', 'create', 'effective', 'disclosures', 'process', 'guidelines', 'best practices']",
+      "generated_answer": "Based on the documents provided, here's a process for creating effective ESG disclosures:\n\nPrerequisites:\n*   Understanding of ESG principles and their relevance to your company.\n\nStep-by-step procedure:\n\n1.  **Determine why ESG information should be reported:** Understand the motivations for reporting ESG information. This involves considering factors such as stakeholder expectations, regulatory requirements, and the company's strategic goals (See: ESG_Disclosure_Handbook.pdf, Key question 1).\n2.  **Identify the target audience for ESG reporting:** Determine who the ESG report is for. This includes investors, customers, employees, regulators, and the broader community (See: ESG_Disclosure_Handbook.pdf, Key question 2).\n3.  **Choose the reporting channel:** Decide where the ESG information should be reported. This could be in the annual report, a separate sustainability report, the company website, or other relevant platforms (See: ESG_Disclosure_Handbook.pdf, Key question 3).\n4.  **Define the scope of ESG information to be reported:** Determine the specific ESG topics and metrics that are most relevant and material to the company's business and stakeholders (See: ESG_Disclosure_Handbook.pdf, Key question 4).\n5.  **Prepare and present ESG information:** Establish a process for collecting, analyzing, and reporting ESG data. Ensure that the information is accurate, reliable, and presented in a clear and accessible manner (See: ESG_Disclosure_Handbook.pdf, Key question 5).\n6.  **Implement an ESG program:** Launch environmental, social, and governance programs (See: FN17_SCGHow to Guide.pdf).\n\nImportant Notes:\n*   The documents provided are introductory and don't contain comprehensive instructions for each step. Additional research and expert consultation may be required.\n*   Materiality assessment is a critical part of Step 4; focus on ESG issues that are most significant to your business and stakeholders.\n\nExpected Outcome:\n*   A well-defined and executed ESG disclosure strategy that meets the needs of the company and its stakeholders.\n",
+      "accuracy_score": 0.55,
+      "response_time": 13.205716848373413,
+      "sources_count": 2,
+      "confidence_score": 0.7686301693320274,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:41:41.362120"
+    },
+    {
+      "question_id": 12,
+      "question": "Explain the concept of ESG materiality",
+      "category": "esg_advanced",
+      "difficulty": "intermediate",
+      "expected_answer": "['concept', 'materiality', 'ESG', 'explain', 'significance', 'relevance', 'impact']",
+      "generated_answer": "Okay, let's break down the concept of ESG materiality.\n\n**Definition:** ESG materiality, in simple terms, refers to the ESG (Environmental, Social, and Governance) factors that are most important to a company's business and its stakeholders. These are the ESG issues that could substantially impact a company's financial performance, operations, or reputation, as well as the interests of its stakeholders (investors, employees, customers, communities, etc.).\n\n**Key Components:**\n\n*   **ESG Factors:** These encompass a wide range of environmental, social, and governance issues. Environmental factors might include carbon emissions, waste management, and resource depletion. Social factors might include labor practices, human rights, and community relations. Governance factors include board structure, executive compensation, and corporate ethics.\n*   **Impact on the Company:**  Material ESG issues are those that could realistically affect a company's financial condition (revenues, expenses, assets, liabilities), its operations (production, supply chain), or its reputation (brand image, customer loyalty).\n*   **Stakeholder Importance:** Material ESG issues are also significant to the company's stakeholders. These are topics that stakeholders care about and use to make decisions about the company (e.g., whether to invest, work for, or buy from the company).\n\n**How It Works:**\n\nDetermining ESG materiality is a process of identifying and evaluating the ESG issues that are most relevant to a company. This often involves:\n\n1.  **Identifying Potential ESG Issues:**  Considering a broad range of ESG factors that could potentially affect the company or its stakeholders.\n2.  **Assessing Significance:** Evaluating the likelihood and magnitude of the potential impact of each ESG issue on the company's financial performance, operations, and reputation, as well as its importance to stakeholders.\n3.  **Prioritization:** Ranking ESG issues based on their assessed significance to identify the most material issues.\n\n**Examples:**\n\n*   For a manufacturing company, **energy consumption and waste disposal** might be material environmental issues because they directly impact operating costs and environmental compliance.\n*   For a retail company, **labor practices in its supply chain** (e.g., worker safety, fair wages) might be material social issues because they can affect brand reputation and consumer trust.\n*   For a financial institution, **data security and ethical lending practices** might be material governance issues because they are crucial for maintaining customer confidence and regulatory compliance.\n\n**Relationships:**\n\n*   **ESG Reporting:** ESG materiality is crucial for effective ESG reporting. Companies should focus their reporting efforts on the ESG issues that are most material to their business and stakeholders, as noted in \"Key question 4: what ESG information should be reported?\" from Document 1. This ensures that the reported information is relevant, decision-useful, and avoids \"greenwashing\" (presenting a misleadingly positive image of environmental responsibility).\n*   **Stakeholder Engagement:**  Understanding stakeholder concerns is an integral part of determining ESG materiality. Engaging with investors, employees, customers, and communities can help companies identify the ESG issues that are most important to them.\n*   **Risk Management:** Material ESG issues often represent significant risks or opportunities for a company. By identifying and managing these issues, companies can improve their overall risk management and create long-term value.\n\n**Summary:**\n\nESG materiality is about identifying and prioritizing the ESG issues that truly matter to a company and its stakeholders. It's a dynamic process that informs a company's strategy, risk management, and reporting, helping it to focus on the ESG factors that have the most significant impact on its long-term success and sustainability.\n",
+      "accuracy_score": 0.7833333333333333,
+      "response_time": 14.846349000930786,
+      "sources_count": 2,
+      "confidence_score": 0.6416662149131298,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:41:56.211884"
+    },
+    {
+      "question_id": 13,
+      "question": "What is the role of governance in ESG frameworks?",
+      "category": "esg_advanced",
+      "difficulty": "intermediate",
+      "expected_answer": "['role', 'governance', 'frameworks', 'ESG', 'oversight', 'accountability', 'structure']",
+      "generated_answer": "Here's an explanation of the role of governance in ESG frameworks, designed to be clear and accessible:\n\n**Definition:**\n\nGovernance in ESG (Environmental, Social, and Governance) refers to the system of rules, practices, and processes by which a company is directed and controlled. It essentially defines who makes decisions, how those decisions are made, and how the company is held accountable.\n\n**Key Components:**\n\n*   **Corporate Governance Structure:** This includes the board of directors, its committees (e.g., audit, compensation, and increasingly sustainability committees), and the roles and responsibilities of each member. It also covers the company's bylaws and articles of incorporation.\n*   **Ethics and Compliance:** This involves the company's code of conduct, policies related to bribery and corruption, and mechanisms for reporting and investigating ethical violations.\n*   **Risk Management:** This encompasses the processes for identifying, assessing, and mitigating risks, including those related to environmental, social, and governance factors.\n*   **Transparency and Disclosure:** This refers to the company's commitment to providing accurate and timely information to stakeholders, including investors, employees, customers, and the public.  This is the explicit purpose of documents like the \"ESG Disclosure Handbook\".\n\n**How It Works:**\n\nGovernance provides the structure and framework for implementing and overseeing a company's ESG strategy. A strong governance structure ensures that ESG considerations are integrated into decision-making at all levels of the organization. For example, the board of directors might oversee the company's environmental performance, set targets for reducing greenhouse gas emissions, or monitor progress on diversity and inclusion initiatives. Strong governance ensures that ESG issues are not treated as isolated concerns but are embedded into the company's overall strategy and operations.\n\n**Examples:**\n\n*   A company establishes a sustainability committee within its board of directors to oversee its environmental and social performance.\n*   A company implements a whistleblower policy that allows employees to report ethical violations, including environmental damage or human rights abuses, without fear of retaliation.\n*   A company develops a comprehensive risk management framework that includes ESG risks, such as climate change, resource scarcity, and social unrest.\n\n**Relationships:**\n\n*   **Environmental (E):** Governance influences how a company manages its environmental impact, such as its carbon footprint, resource consumption, and waste management.\n*   **Social (S):** Governance affects how a company treats its employees, engages with its communities, and manages its supply chain, including issues like labor standards, human rights, and diversity and inclusion.\n*   **Disclosure:** Effective governance leads to better ESG disclosure, which provides stakeholders with the information they need to assess a company's ESG performance (as highlighted in the \"ESG Disclosure Handbook\").\n\n**Summary:**\n\nGovernance is the backbone of any effective ESG framework. It provides the structure, processes, and accountability mechanisms necessary to ensure that ESG considerations are integrated into a company's strategy and operations. Strong governance leads to better ESG performance, enhanced stakeholder trust, and long-term value creation.\n",
+      "accuracy_score": 0.8777777777777778,
+      "response_time": 13.310574293136597,
+      "sources_count": 2,
+      "confidence_score": 0.7303873300552368,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:42:09.524278"
+    }
+  ],
+  "timestamp": "2025-09-03T15:42:09.526593"
+}

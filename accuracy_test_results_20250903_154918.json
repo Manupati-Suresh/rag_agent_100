@@ -1,0 +1,220 @@
+{
+  "overall_accuracy": 0.2586527777777778,
+  "target_accuracy": 0.9,
+  "accuracy_achieved": "False",
+  "total_questions": 13,
+  "total_time": 49.324899435043335,
+  "average_response_time": 3.7922673408801737,
+  "category_breakdown": {
+    "esg_basic": {
+      "average_accuracy": 0.9338888888888889,
+      "weight": 0.2,
+      "weighted_score": 0.1867777777777778
+    },
+    "esg_intermediate": {
+      "average_accuracy": 0.28750000000000003,
+      "weight": 0.25,
+      "weighted_score": 0.07187500000000001
+    },
+    "esg_analytical": {
+      "average_accuracy": 0.0,
+      "weight": 0.25,
+      "weighted_score": 0.0
+    },
+    "esg_procedural": {
+      "average_accuracy": 0.0,
+      "weight": 0.15,
+      "weighted_score": 0.0
+    },
+    "esg_advanced": {
+      "average_accuracy": 0.0,
+      "weight": 0.15,
+      "weighted_score": 0.0
+    }
+  },
+  "detailed_results": [
+    {
+      "question_id": 1,
+      "question": "What is ESG?",
+      "category": "esg_basic",
+      "difficulty": "intermediate",
+      "expected_answer": "['environmental', 'social', 'governance', 'ESG', 'sustainability', 'responsibility', 'framework']",
+      "generated_answer": "Based on the provided documents, here's what I can tell you about ESG:\n\nESG stands for Environmental, Social, and Governance.\n\nHere's a breakdown based on the documents:\n\n*   **ESG Disclosures:** ESG disclosures are reports companies publish to communicate their environmental, social, and governance performance to stakeholders. These disclosures aim to provide transparency about a company's sustainability practices, risks, and opportunities. (Document 2)\n*   **Key Components:** Key components of ESG disclosures include a materiality assessment, performance metrics, targets and goals, governance structure, risk management, and stakeholder engagement. (Document 2)\n*   **Frameworks:** Companies use various frameworks for ESG disclosures, such as GRI (Global Reporting Initiative), SASB (Sustainability Accounting Standards Board), TCFD (Task Force on Climate-related Financial Disclosures). (Document 2)\n*   **Importance of Reporting:** Companies report ESG information for various reasons, including demonstrating a commitment to sustainability and helping investors make informed decisions. (Document 2, Document 3)\n*   **ESG Program Implementation:** Implementing an ESG program requires a systematic approach with leadership commitment and board oversight. (Document 1)\n*   **Materiality Assessment:** A crucial initial step is conducting a materiality assessment to identify the most significant ESG issues. (Document 1)\n*   **Ongoing Process:** Regular monitoring, evaluation, and continuous improvement are essential for ESG program success. (Document 1)\n\nIn essence, ESG encompasses a company's efforts and performance related to environmental sustainability, social responsibility, and corporate governance. Companies communicate these efforts through disclosures and implement them via structured programs.\n\nWhile the documents provide a good overview, they don't delve into the specifics of what constitutes \"Environmental,\" \"Social,\" and \"Governance\" factors. To fully understand ESG, further information on the specific elements within each of these categories would be beneficial.\n",
+      "accuracy_score": 0.9666666666666666,
+      "response_time": 10.820367574691772,
+      "sources_count": 3,
+      "confidence_score": 0.7898718814055126,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:48:40.182193"
+    },
+    {
+      "question_id": 2,
+      "question": "What are ESG disclosures?",
+      "category": "esg_basic",
+      "difficulty": "intermediate",
+      "expected_answer": "['disclosures', 'reporting', 'transparency', 'ESG', 'stakeholders', 'information', 'performance']",
+      "generated_answer": "Based on the provided documents, here's a comprehensive answer to your question about ESG disclosures:\n\nESG disclosures are reports that companies publish to communicate their environmental, social, and governance (ESG) performance to stakeholders. (Document 1: esg_disclosure_framework)\n\nHere's a breakdown of what that means:\n\n*   **Purpose:** They provide transparency about a company's sustainability practices, risks, and opportunities. (Document 1: esg_disclosure_framework)\n*   **Key Components:** They include (Document 1: esg_disclosure_framework):\n\n    *   Materiality assessment (identifying the most significant ESG issues for the company and its stakeholders. Document 3: esg_program_implementation)\n    *   Performance metrics\n    *   Targets and goals\n    *   Governance structure\n    *   Risk management\n    *   Stakeholder engagement\n*   **Frameworks:** Companies use various frameworks for reporting, including (Document 1: esg_disclosure_framework):\n\n    *   GRI (Global Reporting Initiative)\n    *   SASB (Sustainability Accounting Standards Board)\n    *   TCFD (Task Force on Climate-related Financial Disclosures)\n    *   Integrated reporting\n*   **Characteristics of Effective Disclosures:** They should be (Document 1: esg_disclosure_framework):\n\n    *   Accurate\n    *   Complete\n    *   Consistent\n    *   Comparable\n    *   Relevant to stakeholders\n*   **Benefits:** They help investors make informed decisions and enable companies to demonstrate their commitment to sustainability. (Document 1: esg_disclosure_framework)\n\nThe *ESG Disclosure Handbook* (Document 2: ESG\\_Disclosure\\_Handbook.pdf) also outlines a process overview and key questions related to ESG reporting, such as:\n\n*   Why report ESG information?\n*   For whom should ESG information be reported?\n*   Where should ESG information be reported?\n*   What ESG information should be reported?\n*   How should ESG information be prepared and presented?\n*   How much ESG information should be reported?\n\nFurthermore, Document 3 (esg\\_program\\_implementation) highlights that implementing an ESG program and generating disclosures requires a systematic approach, including:\n\n*   Leadership commitment and board oversight\n*   Stakeholder engagement, peer benchmarking, and risk assessment\n*   Establishing clear ESG goals and targets aligned with business strategy\n*   Dedicated resources and integration into business processes\n*   Data collection systems, measurement frameworks, and reporting mechanisms\n*   Regular monitoring, evaluation, and continuous improvement\n\n",
+      "accuracy_score": 0.9749999999999999,
+      "response_time": 7.6788411140441895,
+      "sources_count": 3,
+      "confidence_score": 0.8531575103600819,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:48:47.863041"
+    },
+    {
+      "question_id": 3,
+      "question": "Why are ESG programs important?",
+      "category": "esg_basic",
+      "difficulty": "intermediate",
+      "expected_answer": "['programs', 'important', 'benefits', 'ESG', 'risk management', 'reputation', 'compliance']",
+      "generated_answer": "ESG programs are important because they provide numerous benefits that create business value and competitive advantage (Document 2).\n\nSpecifically, ESG programs:\n\n*   **Improve Risk Management:** They reduce regulatory, operational, and reputational risks through proactive ESG practices (Document 2).\n*   **Generate Cost Savings:** They lead to cost savings resulting from energy efficiency, waste reduction, and operational improvements (Document 2).\n*   **Create Revenue Opportunities:** They allow companies to tap into new revenue streams from sustainable products, new markets, and customer preferences for responsible companies (Document 2).\n*   **Improve Access to Capital:** They make it easier to access capital as ESG-focused investors increasingly consider sustainability factors in investment decisions (Document 2).\n*   **Attract and Retain Talent:** They help attract and retain talent because employees prefer purpose-driven employers with strong values (Document 2).\n*   **Strengthen Brand Reputation and Customer Loyalty:** They enhance brand reputation and customer loyalty through demonstrated commitment to social and environmental responsibility (Document 2).\n*   **Drive Innovation:** They drive new products, services, and business models (Document 2).\n*   **Provide Transparency:** They allow companies to provide transparency about their sustainability practices, risks, and opportunities through ESG disclosures, which are important for stakeholders and investors (Document 3).\n\nIn summary, ESG programs are important for long-term value creation, risk mitigation, and enhanced stakeholder relations.\n",
+      "accuracy_score": 0.8600000000000001,
+      "response_time": 2.659926176071167,
+      "sources_count": 3,
+      "confidence_score": 0.8014016846815746,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:48:50.524305"
+    },
+    {
+      "question_id": 4,
+      "question": "How do companies implement ESG programs?",
+      "category": "esg_intermediate",
+      "difficulty": "intermediate",
+      "expected_answer": "['implement', 'companies', 'programs', 'ESG', 'strategy', 'framework', 'management']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 11\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 0.7783277034759521,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:48:51.306164"
+    },
+    {
+      "question_id": 5,
+      "question": "What are the key components of ESG reporting?",
+      "category": "esg_intermediate",
+      "difficulty": "intermediate",
+      "expected_answer": "['components', 'reporting', 'ESG', 'key', 'metrics', 'standards', 'disclosure']",
+      "generated_answer": "Based on the provided documents, the key components of ESG reporting are:\n\n*   **Materiality assessment:** Identifying the most significant ESG issues for the company and its stakeholders. (Document 2 & 3)\n*   **Performance metrics:** Quantifiable measures used to track and report on ESG performance. (Document 2)\n*   **Targets and goals:** Specific, measurable, achievable, relevant, and time-bound objectives related to ESG performance. (Document 2 & 3)\n*   **Governance structure:** Information about the company's board and management oversight of ESG issues. (Document 2)\n*   **Risk management:** Disclosure of ESG-related risks and how the company is managing them. (Document 2 & 3)\n*   **Stakeholder engagement:** Information about how the company engages with its stakeholders on ESG issues. (Document 2 & 3)\n*   **Frameworks:** Utilization of reporting frameworks such as GRI, SASB, TCFD, and integrated reporting. (Document 2)\n*   **Clear ESG goals and targets aligned with business strategy.** (Document 3)\n*   **Data collection systems, measurement frameworks, and reporting mechanisms.** (Document 3)\n\nThe documents also emphasize that effective ESG disclosures should be accurate, complete, consistent, comparable, and relevant to stakeholders. (Document 2)\n",
+      "accuracy_score": 0.8625,
+      "response_time": 6.180391550064087,
+      "sources_count": 3,
+      "confidence_score": 0.8534767429033916,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:48:57.487799"
+    },
+    {
+      "question_id": 6,
+      "question": "How do ESG factors affect business performance?",
+      "category": "esg_intermediate",
+      "difficulty": "intermediate",
+      "expected_answer": "['factors', 'affect', 'business', 'performance', 'impact', 'value', 'sustainability']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 4\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 0.7928173542022705,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:48:58.282043"
+    },
+    {
+      "question_id": 7,
+      "question": "Compare environmental and social aspects of ESG",
+      "category": "esg_analytical",
+      "difficulty": "intermediate",
+      "expected_answer": "['environmental', 'social', 'compare', 'aspects', 'differences', 'similarities', 'impact']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 3\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 1.1492068767547607,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:48:59.434359"
+    },
+    {
+      "question_id": 8,
+      "question": "What are the advantages and challenges of ESG implementation?",
+      "category": "esg_analytical",
+      "difficulty": "intermediate",
+      "expected_answer": "['advantages', 'challenges', 'implementation', 'ESG', 'benefits', 'obstacles', 'solutions']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 2\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 0.6123254299163818,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:49:00.048115"
+    },
+    {
+      "question_id": 9,
+      "question": "How does ESG reporting benefit different stakeholders?",
+      "category": "esg_analytical",
+      "difficulty": "intermediate",
+      "expected_answer": "['reporting', 'benefit', 'stakeholders', 'ESG', 'investors', 'customers', 'employees']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 58\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 4.299374103546143,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:49:04.349016"
+    },
+    {
+      "question_id": 10,
+      "question": "How to start an ESG program in a company?",
+      "category": "esg_procedural",
+      "difficulty": "intermediate",
+      "expected_answer": "['start', 'program', 'company', 'ESG', 'steps', 'planning', 'implementation']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 52\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 6.346096992492676,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:49:10.698390"
+    },
+    {
+      "question_id": 11,
+      "question": "Steps to create effective ESG disclosures",
+      "category": "esg_procedural",
+      "difficulty": "intermediate",
+      "expected_answer": "['steps', 'create', 'effective', 'disclosures', 'process', 'guidelines', 'best practices']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 45\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 6.242267370223999,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:49:16.942191"
+    },
+    {
+      "question_id": 12,
+      "question": "Explain the concept of ESG materiality",
+      "category": "esg_advanced",
+      "difficulty": "intermediate",
+      "expected_answer": "['concept', 'materiality', 'ESG', 'explain', 'significance', 'relevance', 'impact']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 44\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 1.0269286632537842,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:49:17.970724"
+    },
+    {
+      "question_id": 13,
+      "question": "What is the role of governance in ESG frameworks?",
+      "category": "esg_advanced",
+      "difficulty": "intermediate",
+      "expected_answer": "['role', 'governance', 'frameworks', 'ESG', 'oversight', 'accountability', 'structure']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 43\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 0.7126045227050781,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:49:18.684676"
+    }
+  ],
+  "timestamp": "2025-09-03T15:49:18.686523"
+}

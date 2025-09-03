@@ -51,61 +51,64 @@ class AccuracyAchievementSystem:
         return True
     
     async def _add_sample_documents(self):
-        """Add comprehensive sample documents for testing"""
+        """Add comprehensive ESG sample documents for testing"""
         sample_docs = [
             {
-                'id': 'python_programming',
-                'content': '''Python is a high-level, interpreted programming language with dynamic semantics. 
-                Its high-level built-in data structures, combined with dynamic typing and dynamic binding, 
-                make it very attractive for Rapid Application Development, as well as for use as a scripting 
-                or glue language to connect existing components together. Python's simple, easy to learn 
-                syntax emphasizes readability and therefore reduces the cost of program maintenance. 
-                Python supports modules and packages, which encourages program modularity and code reuse.''',
-                'metadata': {'category': 'programming', 'topic': 'python', 'difficulty': 'beginner'}
+                'id': 'esg_fundamentals',
+                'content': '''Environmental, Social, and Governance (ESG) refers to the three central factors 
+                in measuring the sustainability and societal impact of an investment in a company or business. 
+                Environmental criteria consider how a company performs as a steward of nature. Social criteria 
+                examine how it manages relationships with employees, suppliers, customers, and communities. 
+                Governance deals with a company's leadership, executive pay, audits, internal controls, and 
+                shareholder rights. ESG investing has gained significant momentum as investors increasingly 
+                recognize that sustainable business practices can drive long-term value creation.''',
+                'metadata': {'category': 'esg', 'topic': 'fundamentals', 'difficulty': 'beginner'}
             },
             {
-                'id': 'machine_learning_basics',
-                'content': '''Machine Learning (ML) is a type of artificial intelligence (AI) that allows 
-                software applications to become more accurate at predicting outcomes without being explicitly 
-                programmed to do so. Machine learning algorithms use historical data as input to predict 
-                new output values. There are three main types of machine learning: supervised learning, 
-                unsupervised learning, and reinforcement learning. Supervised learning uses labeled data 
-                to train models, unsupervised learning finds patterns in unlabeled data, and reinforcement 
-                learning learns through interaction with an environment.''',
-                'metadata': {'category': 'ai', 'topic': 'machine_learning', 'difficulty': 'intermediate'}
+                'id': 'esg_reporting_framework',
+                'content': '''ESG reporting involves the disclosure of environmental, social, and governance 
+                data to stakeholders. Companies use various frameworks such as GRI (Global Reporting Initiative), 
+                SASB (Sustainability Accounting Standards Board), and TCFD (Task Force on Climate-related 
+                Financial Disclosures). Effective ESG reporting requires identifying material issues, 
+                collecting relevant data, and presenting information in a clear and comparable format. 
+                Key components include setting targets, measuring progress, and ensuring transparency 
+                in communication with investors, customers, and other stakeholders.''',
+                'metadata': {'category': 'esg', 'topic': 'reporting', 'difficulty': 'intermediate'}
             },
             {
-                'id': 'neural_networks',
-                'content': '''Neural networks are computing systems inspired by biological neural networks. 
-                They consist of interconnected nodes (neurons) organized in layers. Each connection has a 
-                weight that adjusts during learning. Neural networks learn by adjusting these weights based 
-                on training data through a process called backpropagation. Deep learning uses neural networks 
-                with multiple hidden layers to learn complex patterns. Common types include feedforward networks, 
-                convolutional neural networks (CNNs) for image processing, and recurrent neural networks (RNNs) 
-                for sequential data.''',
-                'metadata': {'category': 'ai', 'topic': 'neural_networks', 'difficulty': 'advanced'}
+                'id': 'environmental_sustainability',
+                'content': '''Environmental sustainability in ESG focuses on a company's impact on the planet. 
+                This includes carbon emissions, energy efficiency, waste management, water usage, and 
+                biodiversity conservation. Companies are increasingly adopting renewable energy sources, 
+                implementing circular economy principles, and setting science-based targets for emissions 
+                reduction. Environmental initiatives not only help mitigate climate change but also 
+                reduce operational costs and enhance brand reputation. Regulatory requirements and 
+                investor expectations are driving companies to prioritize environmental stewardship.''',
+                'metadata': {'category': 'esg', 'topic': 'environmental', 'difficulty': 'intermediate'}
             },
             {
-                'id': 'data_science_process',
-                'content': '''Data science is an interdisciplinary field that uses scientific methods, processes, 
-                algorithms and systems to extract knowledge and insights from structured and unstructured data. 
-                The data science process typically includes: 1) Problem definition, 2) Data collection, 
-                3) Data cleaning and preprocessing, 4) Exploratory data analysis, 5) Feature engineering, 
-                6) Model selection and training, 7) Model evaluation, 8) Deployment and monitoring. 
-                Data scientists use programming languages like Python and R, along with tools like Jupyter 
-                notebooks, pandas, scikit-learn, and TensorFlow.''',
-                'metadata': {'category': 'data_science', 'topic': 'process', 'difficulty': 'intermediate'}
+                'id': 'social_responsibility',
+                'content': '''Social responsibility encompasses a company's relationships with its stakeholders, 
+                including employees, customers, suppliers, and communities. Key areas include diversity and 
+                inclusion, employee wellbeing, human rights, labor practices, and community engagement. 
+                Companies are focusing on creating inclusive workplaces, ensuring fair wages, providing 
+                professional development opportunities, and supporting local communities. Social initiatives 
+                contribute to employee satisfaction, customer loyalty, and overall business resilience. 
+                Measuring social impact requires tracking metrics such as employee turnover, diversity ratios, 
+                and community investment levels.''',
+                'metadata': {'category': 'esg', 'topic': 'social', 'difficulty': 'intermediate'}
             },
             {
-                'id': 'ai_applications',
-                'content': '''Artificial Intelligence has numerous applications across various industries. 
-                In healthcare, AI is used for medical imaging, drug discovery, and personalized treatment. 
-                In finance, AI powers fraud detection, algorithmic trading, and risk assessment. 
-                Transportation benefits from AI through autonomous vehicles and traffic optimization. 
-                In retail, AI enables recommendation systems, inventory management, and customer service chatbots. 
-                Other applications include natural language processing for translation and sentiment analysis, 
-                computer vision for object recognition, and robotics for automation.''',
-                'metadata': {'category': 'ai', 'topic': 'applications', 'difficulty': 'intermediate'}
+                'id': 'corporate_governance',
+                'content': '''Corporate governance refers to the system of rules, practices, and processes 
+                by which a company is directed and controlled. It involves balancing the interests of 
+                stakeholders including shareholders, management, customers, suppliers, financiers, government, 
+                and the community. Key governance elements include board composition, executive compensation, 
+                audit practices, internal controls, and shareholder rights. Good governance ensures 
+                accountability, fairness, and transparency in company operations. It helps prevent 
+                corporate scandals, reduces business risk, and builds investor confidence. Effective 
+                governance structures are essential for long-term business success and stakeholder trust.''',
+                'metadata': {'category': 'esg', 'topic': 'governance', 'difficulty': 'intermediate'}
             }
         ]
         
@@ -298,10 +301,28 @@ class AccuracyAchievementSystem:
         """Save achievement results to file"""
         filename = f"90_percent_accuracy_achievement_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
         
+        # Make results JSON serializable
+        serializable_results = self._make_json_serializable(results)
+        
         with open(filename, 'w') as f:
-            json.dump(results, f, indent=2, default=str)
+            json.dump(serializable_results, f, indent=2)
         
         print(f"\n💾 Achievement results saved to: {filename}")
+    
+    def _make_json_serializable(self, obj):
+        """Convert objects to JSON-serializable format"""
+        if isinstance(obj, dict):
+            return {k: self._make_json_serializable(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [self._make_json_serializable(item) for item in obj]
+        elif isinstance(obj, bool):
+            return obj
+        elif isinstance(obj, (int, float, str)):
+            return obj
+        elif obj is None:
+            return obj
+        else:
+            return str(obj)
     
     async def continuous_accuracy_monitoring(self, check_interval: int = 3600):
         """Continuously monitor and maintain 90% accuracy"""

@@ -1,0 +1,220 @@
+{
+  "overall_accuracy": 0.6967380952380953,
+  "target_accuracy": 0.9,
+  "accuracy_achieved": "False",
+  "total_questions": 13,
+  "total_time": 144.1114423274994,
+  "average_response_time": 11.083082877672636,
+  "category_breakdown": {
+    "esg_basic": {
+      "average_accuracy": 0.6144444444444446,
+      "weight": 0.2,
+      "weighted_score": 0.12288888888888892
+    },
+    "esg_intermediate": {
+      "average_accuracy": 0.7757936507936507,
+      "weight": 0.25,
+      "weighted_score": 0.19394841269841268
+    },
+    "esg_analytical": {
+      "average_accuracy": 0.6412698412698413,
+      "weight": 0.25,
+      "weighted_score": 0.16031746031746033
+    },
+    "esg_procedural": {
+      "average_accuracy": 0.7388888888888889,
+      "weight": 0.15,
+      "weighted_score": 0.11083333333333334
+    },
+    "esg_advanced": {
+      "average_accuracy": 0.7250000000000001,
+      "weight": 0.15,
+      "weighted_score": 0.10875000000000001
+    }
+  },
+  "detailed_results": [
+    {
+      "question_id": 1,
+      "question": "What is ESG?",
+      "category": "esg_basic",
+      "difficulty": "intermediate",
+      "expected_answer": "['environmental', 'social', 'governance', 'ESG', 'sustainability', 'responsibility', 'framework']",
+      "generated_answer": "Based on the provided documents, a complete definition of ESG (Environmental, Social, and Governance) isn't explicitly stated. However, we can infer the following:\n\n*   Document \"FN17\\_SCGHow to Guide.pdf\" refers to ESG as encompassing \"environmental, social, and governance\" factors. It also indicates that this guide aims to help companies launch ESG programs and develop ESG disclosures.\n\n*   Document \"ESG\\_Disclosure\\_Handbook.pdf\" is a guide to ESG disclosure, implying that ESG involves reporting information related to environmental, social, and governance aspects of a company. It explores key questions related to *why*, *for whom*, *where*, *what*, *how*, and *how much* ESG information should be reported.\n\nTo summarize, ESG encompasses environmental, social, and governance factors that companies should consider and potentially disclose information about.\n\nTo fully understand the concept of ESG, additional resources would be needed to elaborate on the specific elements within each of the Environmental, Social, and Governance categories.\n",
+      "accuracy_score": 0.6333333333333334,
+      "response_time": 12.730661869049072,
+      "sources_count": 2,
+      "confidence_score": 0.6851803213357925,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:37:19.319727"
+    },
+    {
+      "question_id": 2,
+      "question": "What are ESG disclosures?",
+      "category": "esg_basic",
+      "difficulty": "intermediate",
+      "expected_answer": "['disclosures', 'reporting', 'transparency', 'ESG', 'stakeholders', 'information', 'performance']",
+      "generated_answer": "Based on the documents provided, here's what we can determine about ESG disclosures:\n\n*   **Purpose:** The ESG Disclosure Handbook aims to guide companies in reporting ESG information (Document 1).\n*   **Key Questions Addressed:** The handbook addresses key questions related to ESG reporting, including *why* to report, *for whom* to report, *where* to report, *what* information to report, *how* to prepare and present the information, and *how much* information to report (Document 1).\n\nWhile the documents indicate the *existence* and *importance* of ESG disclosures and provide guidance on *how* to create them, they don't explicitly define what \"ESG disclosures\" *are*. They imply that ESG disclosures involve reporting environmental, social, and governance information. Document 2, titled \"ESG IMPLEMENTATION GUIDE:GETTING STARTED,\" mentions environmental, social, and governance (ESG) programs and the development of disclosures.\n\nTo fully understand the definition of ESG disclosures, additional information would be needed. For instance, a direct definition of what constitutes environmental, social, and governance factors would be beneficial.\n",
+      "accuracy_score": 0.6500000000000001,
+      "response_time": 8.396342515945435,
+      "sources_count": 2,
+      "confidence_score": 0.7650599703192711,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:37:27.717736"
+    },
+    {
+      "question_id": 3,
+      "question": "Why are ESG programs important?",
+      "category": "esg_basic",
+      "difficulty": "intermediate",
+      "expected_answer": "['programs', 'important', 'benefits', 'ESG', 'risk management', 'reputation', 'compliance']",
+      "generated_answer": "Based on the documents provided, here's what we can infer about the importance of ESG programs:\n\n*   **ESG Disclosure Handbook:** This handbook focuses on *why* and *how* to report ESG information, implying that ESG information is valuable. The handbook addresses the key question: \"Why report ESG information?\". (See document: ESG_Disclosure_Handbook.pdf)\n\n*   **ESG Implementation Guide:** This guide focuses on how to *launch* ESG programs and develop disclosures, implying that there is value in implementing and disclosing ESG programs. (See document: FN17_SCGHow to Guide.pdf)\n\nThe documents suggest that ESG programs are important because:\n\n*   There is a need for companies to report and disclose ESG information.\n*   Organizations are dedicating resources to guide companies in implementing and disclosing ESG programs.\n\nHowever, the documents do not explicitly state *why* ESG programs are important. To provide a more complete answer, more context is needed.\n",
+      "accuracy_score": 0.56,
+      "response_time": 8.293001413345337,
+      "sources_count": 2,
+      "confidence_score": 0.6769951246678829,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:37:36.012656"
+    },
+    {
+      "question_id": 4,
+      "question": "How do companies implement ESG programs?",
+      "category": "esg_intermediate",
+      "difficulty": "intermediate",
+      "expected_answer": "['implement', 'companies', 'programs', 'ESG', 'strategy', 'framework', 'management']",
+      "generated_answer": "Based on the provided documents, here's what we can gather about how companies implement ESG programs:\n\n*   **ESG Implementation Guide:** The \"ESG Implementation Guide: Getting Started\" document (FN17_SCGHow to Guide.pdf) explicitly focuses on helping companies launch ESG programs and develop disclosures. This suggests it contains information on implementation, though the specific steps are not detailed in the extracts.\n\n*   **ESG Disclosure Handbook:** The \"ESG Disclosure Handbook\" (ESG_Disclosure_Handbook.pdf) provides a framework for understanding and reporting ESG information. While the document doesn't explicitly detail the steps for *implementing* ESG programs, it does offer valuable context through a series of \"Key Questions\" that guide the disclosure process:\n    *   Why report ESG information?\n    *   For whom should ESG information be reported?\n    *   Where should ESG information be reported?\n    *   What ESG information should be reported?\n    *   How should ESG information be prepared and presented?\n    *   How much ESG information should be reported?\n\n    The handbook includes an evaluation process with these steps:\n        * Evaluate\n        * Decide\n        * Document\n\n**In summary:**\n\nThe documents confirm that companies are increasingly focused on implementing and disclosing ESG information. The \"ESG Implementation Guide\" (FN17_SCGHow to Guide.pdf) is specifically designed to assist companies in launching these programs. The \"ESG Disclosure Handbook\" (ESG_Disclosure_Handbook.pdf) helps guide reporting through a series of key questions, but only provide an evaluation process to evaluate, decide and document.\n",
+      "accuracy_score": 0.7666666666666666,
+      "response_time": 10.131064414978027,
+      "sources_count": 2,
+      "confidence_score": 0.7106688171625137,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:37:46.147551"
+    },
+    {
+      "question_id": 5,
+      "question": "What are the key components of ESG reporting?",
+      "category": "esg_intermediate",
+      "difficulty": "intermediate",
+      "expected_answer": "['components', 'reporting', 'ESG', 'key', 'metrics', 'standards', 'disclosure']",
+      "generated_answer": "Based on the provided documents, the key components of ESG reporting are:\n\n*   **Why report ESG information?** (Document 1, page 11)\n*   **For whom should ESG information be reported?** (Document 1, page 13)\n*   **Where should ESG information be reported?** (Document 1, page 15)\n*   **What ESG information should be reported?** (Document 1, page 16)\n*   **How should ESG information be prepared and presented?** (Document 1, page 18)\n*   **How much ESG information should be reported?** (Document 1, page 20)\n\nThese questions, from the ESG Disclosure Handbook, cover the fundamental aspects that companies should consider when developing their ESG reporting strategy.\n\nDocument 2 focuses on the implementation of ESG programs rather than the specific components of the report itself. However, it can be inferred that environmental, social, and governance factors are the core subjects covered in these reports.\n",
+      "accuracy_score": 0.7749999999999999,
+      "response_time": 10.031778573989868,
+      "sources_count": 2,
+      "confidence_score": 0.7537711709737778,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:37:56.181534"
+    },
+    {
+      "question_id": 6,
+      "question": "How do ESG factors affect business performance?",
+      "category": "esg_intermediate",
+      "difficulty": "intermediate",
+      "expected_answer": "['factors', 'affect', 'business', 'performance', 'impact', 'value', 'sustainability']",
+      "generated_answer": "Based on the provided documents, a comprehensive answer on how ESG factors affect business performance cannot be given. While the documents discuss ESG disclosure and implementation, they do not explicitly detail the specific ways in which ESG factors directly affect business performance.\n\nSpecifically:\n\n*   **ESG\\_Disclosure\\_Handbook.pdf:** This document focuses on the \"why, for whom, where, what, how, and how much\" of ESG reporting. It is a guide to *disclosing* ESG information, not an analysis of the *impact* of ESG factors on business performance.\n\n*   **FN17\\_SCGHow to Guide.pdf:** This document is an ESG implementation guide. It focuses on how to launch ESG programs and develop disclosures, but it does not detail how ESG factors impact business performance.\n",
+      "accuracy_score": 0.7857142857142857,
+      "response_time": 10.85474443435669,
+      "sources_count": 2,
+      "confidence_score": 0.6991071328520775,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:38:07.038682"
+    },
+    {
+      "question_id": 7,
+      "question": "Compare environmental and social aspects of ESG",
+      "category": "esg_analytical",
+      "difficulty": "intermediate",
+      "expected_answer": "['environmental', 'social', 'compare', 'aspects', 'differences', 'similarities', 'impact']",
+      "generated_answer": "Based on the provided documents, a direct comparison of the environmental and social aspects of ESG is not possible. While both documents discuss ESG in general, they do not delve into the specific details of environmental and social factors.\n\nDocument 1 (ESG_Disclosure_Handbook.pdf) provides a general overview of ESG disclosure, covering the purpose, objectives, and process of reporting ESG information. It raises key questions related to why, for whom, where, what, and how much ESG information should be reported, but it does not elaborate on the specifics of environmental vs. social considerations.\n\nDocument 2 (FN17_SCGHow to Guide.pdf) is an ESG implementation guide, offering perspectives, guidelines, and tools for companies to launch ESG programs and develop disclosures. However, it does not contain specific information that would allow for a comparison of environmental and social aspects within ESG.\n\nTherefore, the documents do not contain enough information to fully answer the user's question.\n",
+      "accuracy_score": 0.5857142857142857,
+      "response_time": 12.489214420318604,
+      "sources_count": 2,
+      "confidence_score": 0.6993333175778389,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:38:19.531581"
+    },
+    {
+      "question_id": 8,
+      "question": "What are the advantages and challenges of ESG implementation?",
+      "category": "esg_analytical",
+      "difficulty": "intermediate",
+      "expected_answer": "['advantages', 'challenges', 'implementation', 'ESG', 'benefits', 'obstacles', 'solutions']",
+      "generated_answer": "Based on the documents provided, I can offer some insights into the purpose and process of ESG implementation and disclosure, but neither document explicitly details the advantages and challenges of ESG implementation.\n\n*   **ESG Disclosure Handbook.pdf:** This document focuses on the \"why, for whom, where, what, how, and how much\" of ESG reporting. It outlines a process for evaluating, deciding, and documenting ESG information. It aims to guide companies in their ESG reporting efforts.\n\n*   **FN17\\_SCGHow to Guide.pdf:** This document serves as an implementation guide to assist companies in launching ESG programs and developing disclosures.\n\nTo directly answer your question about the advantages and challenges of ESG implementation, I would need additional resources that specifically address those points.\n",
+      "accuracy_score": 0.6666666666666667,
+      "response_time": 11.980282306671143,
+      "sources_count": 2,
+      "confidence_score": 0.6809761747717857,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:38:31.513690"
+    },
+    {
+      "question_id": 9,
+      "question": "How does ESG reporting benefit different stakeholders?",
+      "category": "esg_analytical",
+      "difficulty": "intermediate",
+      "expected_answer": "['reporting', 'benefit', 'stakeholders', 'ESG', 'investors', 'customers', 'employees']",
+      "generated_answer": "Based on the documents provided, here's how ESG reporting benefits different stakeholders:\n\nDocument 1, \"ESG Disclosure Handbook,\" directly addresses this question in Key Question 2: \"For whom should ESG information be reported?\" (Page 13). While the specific details of the benefits aren't elaborated upon *for each stakeholder*, the document acknowledges that ESG reporting is relevant to a wide range of stakeholders.\n\nDocument 2, \"ESG Implementation Guide: Getting Started,\" focuses on how companies can implement ESG programs and disclosures but does not explicitly detail the benefits for specific stakeholders.\n\nTherefore, while the documents acknowledge the importance of reporting ESG information to various stakeholders, they do not comprehensively describe *how* each stakeholder benefits from this reporting. More information would be needed to provide a fully detailed answer.\n",
+      "accuracy_score": 0.6714285714285715,
+      "response_time": 11.046480417251587,
+      "sources_count": 2,
+      "confidence_score": 0.7690957337617874,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:38:42.561746"
+    },
+    {
+      "question_id": 10,
+      "question": "How to start an ESG program in a company?",
+      "category": "esg_procedural",
+      "difficulty": "intermediate",
+      "expected_answer": "['start', 'program', 'company', 'ESG', 'steps', 'planning', 'implementation']",
+      "generated_answer": "Based on the documents provided, a comprehensive, step-by-step guide to starting an ESG program is not available. However, the documents provide some insights that can help initiate the process.\n\nHere's a breakdown of what can be gleaned from the documents:\n\n*   **Purpose and Objectives (ESG Disclosure Handbook):** The \"ESG Disclosure Handbook\" mentions its purpose is to help companies with ESG disclosure. While not directly about starting a program, it implies understanding *why* you need to report ESG information is crucial.\n*   **Key Questions (ESG Disclosure Handbook):** The handbook outlines key questions that can guide the process:\n    *   Why report ESG information? (Key Question 1)\n    *   For whom should ESG information be reported? (Key Question 2)\n    *   Where should ESG information be reported? (Key Question 3)\n    *   What ESG information should be reported? (Key Question 4)\n    *   How should ESG information be prepared and presented? (Key Question 5)\n    *   How much ESG information should be reported? (Key Question 6)\n*   **Evaluation Process (ESG Disclosure Handbook):** The handbook details a three-step evaluation process:\n    *   Evaluate\n    *   Decide\n    *   Document\n*   **Practical Tools (ESG Implementation Guide):** The \"ESG Implementation Guide: Getting Started\" (FN17\\_SCGHow to Guide.pdf) explicitly aims to provide perspectives, guidelines, and practical tools to help companies launch ESG programs.\n\nIn conclusion, while the documents don't provide an exhaustive step-by-step guide, they indicate that starting an ESG program involves understanding the reasons for reporting, identifying stakeholders, determining what and how to report, and following an evaluation process. Also, the \"ESG Implementation Guide\" would probably be a good resource for getting started, based on the title and description.\n",
+      "accuracy_score": 0.6777777777777778,
+      "response_time": 12.703979015350342,
+      "sources_count": 2,
+      "confidence_score": 0.7002333700656891,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:38:55.268846"
+    },
+    {
+      "question_id": 11,
+      "question": "Steps to create effective ESG disclosures",
+      "category": "esg_procedural",
+      "difficulty": "intermediate",
+      "expected_answer": "['steps', 'create', 'effective', 'disclosures', 'process', 'guidelines', 'best practices']",
+      "generated_answer": "Based on the provided documents, here's what we can gather about creating effective ESG disclosures:\n\n**Document 1 (ESG Disclosure Handbook):**\n\nThis handbook outlines a process for creating ESG disclosures, focusing on evaluation, decision-making, and documentation. Here's a breakdown:\n\n*   **Key Questions:** The handbook suggests addressing these key questions:\n    *   Why report ESG information?\n    *   For whom should ESG information be reported?\n    *   Where should ESG information be reported?\n    *   What ESG information should be reported?\n    *   How should ESG information be prepared and presented?\n    *   How much ESG information should be reported?\n*   **Evaluation Process:** It outlines three main steps:\n    *   **A: Evaluate:** This likely involves assessing the company's current ESG practices and identifying relevant information for disclosure.\n    *   **B: Decide:** This stage involves making decisions about what to disclose based on the evaluation.\n    *   **C: Document:** This step focuses on documenting the ESG information for reporting.\n\n*   **Handbook Checklist:** There's a checklist included, presumably to ensure all key aspects of ESG disclosure are considered.\n\n**Document 2 (ESG Implementation Guide: Getting Started):**\n\nThis document offers a broader perspective on *implementing* ESG programs and developing disclosures. It doesn't delve into specific steps for disclosure creation as much as the first document. It is about getting started on ESG programs.\n\n**In summary, based on the documents, the steps to create effective ESG disclosures involve:**\n\n1.  **Understanding the Purpose:** Determine *why* you are reporting ESG information.\n2.  **Identifying the Audience:** Know *for whom* you are preparing the report (investors, customers, etc.).\n3.  **Choosing the Reporting Channel:** Decide *where* you will report the information (annual report, sustainability report, website, etc.).\n4.  **Selecting Relevant Information:** Determine *what* ESG information is material and should be included.\n5.  **Preparing and Presenting Information:** Decide *how* to present the information in a clear, consistent, and comparable manner.\n6.  **Determining the Scope:** Decide *how much* information to report, balancing comprehensiveness with conciseness.\n7.  **Evaluate, Decide, Document:** The Handbook suggests a structured process involving Evaluation, Decision-making, and Documentation.\n8.  **Use the Checklist:** Employ the handbook's checklist to ensure all relevant aspects are considered.\n\n**Limitations:**\n\nThe documents provide a high-level overview. They don't offer granular details on specific frameworks (like GRI, SASB, TCFD), specific metrics to track, or in-depth guidance on materiality assessments. Further research and resources are needed for a more complete picture of creating effective ESG disclosures.\n",
+      "accuracy_score": 0.7999999999999999,
+      "response_time": 13.720204830169678,
+      "sources_count": 2,
+      "confidence_score": 0.7686301693320274,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:39:08.990880"
+    },
+    {
+      "question_id": 12,
+      "question": "Explain the concept of ESG materiality",
+      "category": "esg_advanced",
+      "difficulty": "intermediate",
+      "expected_answer": "['concept', 'materiality', 'ESG', 'explain', 'significance', 'relevance', 'impact']",
+      "generated_answer": "Based on the provided documents, a comprehensive explanation of \"ESG materiality\" cannot be provided.\n\nWhile \"ESG Disclosure Handbook.pdf\" mentions \"what ESG information should be reported\" (under Key question 4), it does not explicitly define or explain the concept of ESG materiality. Similarly, \"FN17_SCGHow to Guide.pdf\" mentions ESG programs and disclosures but does not define materiality.\n\nTherefore, the documents lack the necessary information to fully address the concept of ESG materiality.\n",
+      "accuracy_score": 0.6833333333333335,
+      "response_time": 10.032935619354248,
+      "sources_count": 2,
+      "confidence_score": 0.6416662149131298,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:39:19.026767"
+    },
+    {
+      "question_id": 13,
+      "question": "What is the role of governance in ESG frameworks?",
+      "category": "esg_advanced",
+      "difficulty": "intermediate",
+      "expected_answer": "['role', 'governance', 'frameworks', 'ESG', 'oversight', 'accountability', 'structure']",
+      "generated_answer": "Based on the documents provided, a comprehensive answer regarding the role of governance in ESG frameworks cannot be determined.\n\nDocument 1, \"ESG Disclosure Handbook,\" provides an overview of ESG reporting and disclosure but doesn't explicitly detail the role of governance within those frameworks. It covers the purpose, objectives, and process of ESG disclosure, key questions to consider, and steps in the evaluation process.\n\nDocument 2, \"ESG Implementation Guide: Getting Started,\" introduces the topic of ESG programs and disclosures. It mentions the Society for Corporate Governance and its members who support corporate boards on governance and disclosure matters. However, it does not elaborate on the specific role of governance within ESG.\n\nWhile both documents touch on governance in the context of corporate reporting and disclosure, they do not delve into the specifics of how governance structures and practices influence or are integrated into ESG frameworks.\n",
+      "accuracy_score": 0.7666666666666666,
+      "response_time": 11.669387578964233,
+      "sources_count": 2,
+      "confidence_score": 0.7303873300552368,
+      "error_type": "none",
+      "timestamp": "2025-09-03T15:39:30.698295"
+    }
+  ],
+  "timestamp": "2025-09-03T15:39:30.699907"
+}

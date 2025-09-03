@@ -420,17 +420,27 @@ class AccuracyOptimizer:
                 'question': obj.question,
                 'expected_answer': obj.expected_answer,
                 'generated_answer': obj.generated_answer,
-                'relevance_score': obj.relevance_score,
-                'factual_accuracy': obj.factual_accuracy,
-                'completeness_score': obj.completeness_score,
-                'overall_accuracy': obj.overall_accuracy,
-                'retrieval_quality': obj.retrieval_quality,
-                'response_time': obj.response_time,
+                'relevance_score': float(obj.relevance_score),
+                'factual_accuracy': float(obj.factual_accuracy),
+                'completeness_score': float(obj.completeness_score),
+                'overall_accuracy': float(obj.overall_accuracy),
+                'retrieval_quality': float(obj.retrieval_quality),
+                'response_time': float(obj.response_time),
                 'sources_used': obj.sources_used,
                 'timestamp': obj.timestamp
             }
-        else:
+        elif isinstance(obj, (np.float32, np.float64)):
+            return float(obj)
+        elif isinstance(obj, (np.int32, np.int64)):
+            return int(obj)
+        elif isinstance(obj, bool):
             return obj
+        elif isinstance(obj, (int, float, str)):
+            return obj
+        elif obj is None:
+            return obj
+        else:
+            return str(obj)
     
     async def create_comprehensive_test_dataset(self, num_questions: int = 50) -> List[Dict]:
         """Create a comprehensive test dataset for accuracy measurement"""

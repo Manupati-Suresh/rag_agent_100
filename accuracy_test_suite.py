@@ -40,100 +40,100 @@ class AccuracyTestSuite:
         self.test_results = []
         self.accuracy_threshold = 0.90
         
-        # Test categories with different difficulty levels
+        # Test categories with different difficulty levels - ESG FOCUSED
         self.test_categories = {
-            'factual_basic': {
-                'description': 'Basic factual questions',
+            'esg_basic': {
+                'description': 'Basic ESG questions',
                 'weight': 0.2,
                 'questions': [
                     {
-                        'question': 'What is Python programming language?',
-                        'expected_keywords': ['programming', 'language', 'interpreted', 'high-level'],
-                        'expected_concepts': ['syntax', 'versatile', 'readable']
+                        'question': 'What is ESG?',
+                        'expected_keywords': ['environmental', 'social', 'governance', 'ESG'],
+                        'expected_concepts': ['sustainability', 'responsibility', 'framework']
                     },
                     {
-                        'question': 'What is machine learning?',
-                        'expected_keywords': ['algorithms', 'data', 'patterns', 'learning'],
-                        'expected_concepts': ['artificial intelligence', 'training', 'prediction']
+                        'question': 'What are ESG disclosures?',
+                        'expected_keywords': ['disclosures', 'reporting', 'transparency', 'ESG'],
+                        'expected_concepts': ['stakeholders', 'information', 'performance']
                     },
                     {
-                        'question': 'What is artificial intelligence?',
-                        'expected_keywords': ['intelligence', 'machines', 'human-like', 'automation'],
-                        'expected_concepts': ['problem solving', 'decision making', 'learning']
+                        'question': 'Why are ESG programs important?',
+                        'expected_keywords': ['programs', 'important', 'benefits', 'ESG'],
+                        'expected_concepts': ['risk management', 'reputation', 'compliance']
                     }
                 ]
             },
-            'factual_intermediate': {
-                'description': 'Intermediate factual questions',
+            'esg_intermediate': {
+                'description': 'Intermediate ESG questions',
                 'weight': 0.25,
                 'questions': [
                     {
-                        'question': 'How do neural networks work?',
-                        'expected_keywords': ['neurons', 'layers', 'weights', 'activation'],
-                        'expected_concepts': ['backpropagation', 'training', 'deep learning']
+                        'question': 'How do companies implement ESG programs?',
+                        'expected_keywords': ['implement', 'companies', 'programs', 'ESG'],
+                        'expected_concepts': ['strategy', 'framework', 'management']
                     },
                     {
-                        'question': 'What are the types of machine learning?',
-                        'expected_keywords': ['supervised', 'unsupervised', 'reinforcement'],
-                        'expected_concepts': ['classification', 'clustering', 'regression']
+                        'question': 'What are the key components of ESG reporting?',
+                        'expected_keywords': ['components', 'reporting', 'ESG', 'key'],
+                        'expected_concepts': ['metrics', 'standards', 'disclosure']
                     },
                     {
-                        'question': 'Explain natural language processing',
-                        'expected_keywords': ['language', 'text', 'processing', 'understanding'],
-                        'expected_concepts': ['tokenization', 'sentiment', 'translation']
+                        'question': 'How do ESG factors affect business performance?',
+                        'expected_keywords': ['factors', 'affect', 'business', 'performance'],
+                        'expected_concepts': ['impact', 'value', 'sustainability']
                     }
                 ]
             },
-            'analytical': {
-                'description': 'Analytical and comparison questions',
+            'esg_analytical': {
+                'description': 'ESG analytical and comparison questions',
                 'weight': 0.25,
                 'questions': [
                     {
-                        'question': 'Compare supervised and unsupervised learning',
-                        'expected_keywords': ['supervised', 'unsupervised', 'labels', 'training'],
-                        'expected_concepts': ['differences', 'applications', 'examples']
+                        'question': 'Compare environmental and social aspects of ESG',
+                        'expected_keywords': ['environmental', 'social', 'compare', 'aspects'],
+                        'expected_concepts': ['differences', 'similarities', 'impact']
                     },
                     {
-                        'question': 'What are the advantages and disadvantages of deep learning?',
-                        'expected_keywords': ['advantages', 'disadvantages', 'deep learning'],
-                        'expected_concepts': ['accuracy', 'complexity', 'data requirements']
+                        'question': 'What are the advantages and challenges of ESG implementation?',
+                        'expected_keywords': ['advantages', 'challenges', 'implementation', 'ESG'],
+                        'expected_concepts': ['benefits', 'obstacles', 'solutions']
                     },
                     {
-                        'question': 'How does AI impact different industries?',
-                        'expected_keywords': ['industries', 'impact', 'automation', 'efficiency'],
-                        'expected_concepts': ['healthcare', 'finance', 'transportation']
+                        'question': 'How does ESG reporting benefit different stakeholders?',
+                        'expected_keywords': ['reporting', 'benefit', 'stakeholders', 'ESG'],
+                        'expected_concepts': ['investors', 'customers', 'employees']
                     }
                 ]
             },
-            'procedural': {
-                'description': 'How-to and procedural questions',
+            'esg_procedural': {
+                'description': 'ESG procedural and how-to questions',
                 'weight': 0.15,
                 'questions': [
                     {
-                        'question': 'How to implement a simple neural network?',
-                        'expected_keywords': ['implementation', 'neural network', 'steps', 'code'],
-                        'expected_concepts': ['layers', 'training', 'framework']
+                        'question': 'How to start an ESG program in a company?',
+                        'expected_keywords': ['start', 'program', 'company', 'ESG'],
+                        'expected_concepts': ['steps', 'planning', 'implementation']
                     },
                     {
-                        'question': 'Steps to deploy a machine learning model',
-                        'expected_keywords': ['deploy', 'model', 'steps', 'production'],
-                        'expected_concepts': ['testing', 'monitoring', 'scaling']
+                        'question': 'Steps to create effective ESG disclosures',
+                        'expected_keywords': ['steps', 'create', 'effective', 'disclosures'],
+                        'expected_concepts': ['process', 'guidelines', 'best practices']
                     }
                 ]
             },
-            'conceptual_advanced': {
-                'description': 'Advanced conceptual questions',
+            'esg_advanced': {
+                'description': 'Advanced ESG conceptual questions',
                 'weight': 0.15,
                 'questions': [
                     {
-                        'question': 'Explain the concept of transfer learning',
-                        'expected_keywords': ['transfer', 'learning', 'pre-trained', 'knowledge'],
-                        'expected_concepts': ['fine-tuning', 'feature extraction', 'efficiency']
+                        'question': 'Explain the concept of ESG materiality',
+                        'expected_keywords': ['concept', 'materiality', 'ESG', 'explain'],
+                        'expected_concepts': ['significance', 'relevance', 'impact']
                     },
                     {
-                        'question': 'What is the attention mechanism in transformers?',
-                        'expected_keywords': ['attention', 'mechanism', 'transformers', 'weights'],
-                        'expected_concepts': ['self-attention', 'context', 'relationships']
+                        'question': 'What is the role of governance in ESG frameworks?',
+                        'expected_keywords': ['role', 'governance', 'frameworks', 'ESG'],
+                        'expected_concepts': ['oversight', 'accountability', 'structure']
                     }
                 ]
             }
@@ -371,10 +371,30 @@ class AccuracyTestSuite:
         """Save test results to file"""
         filename = f"accuracy_test_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
         
+        # Make summary JSON serializable
+        serializable_summary = self._make_json_serializable(summary)
+        
         with open(filename, 'w') as f:
-            json.dump(summary, f, indent=2)
+            json.dump(serializable_summary, f, indent=2)
         
         print(f"\n💾 Results saved to: {filename}")
+    
+    def _make_json_serializable(self, obj):
+        """Convert objects to JSON-serializable format"""
+        if isinstance(obj, dict):
+            return {k: self._make_json_serializable(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [self._make_json_serializable(item) for item in obj]
+        elif isinstance(obj, bool):
+            return obj
+        elif isinstance(obj, (int, float, str)):
+            return obj
+        elif obj is None:
+            return obj
+        elif hasattr(obj, '__dict__'):
+            return self._make_json_serializable(obj.__dict__)
+        else:
+            return str(obj)
     
     async def run_accuracy_improvement_cycle(self) -> Dict:
         """Run complete accuracy improvement cycle"""
@@ -422,8 +442,9 @@ class AccuracyTestSuite:
         
         # Save cycle results
         cycle_filename = f"accuracy_improvement_cycle_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        serializable_cycle_results = self._make_json_serializable(improvement_cycle_results)
         with open(cycle_filename, 'w') as f:
-            json.dump(improvement_cycle_results, f, indent=2)
+            json.dump(serializable_cycle_results, f, indent=2)
         
         print(f"\n💾 Improvement cycle results saved to: {cycle_filename}")
         

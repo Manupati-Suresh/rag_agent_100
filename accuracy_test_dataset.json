@@ -1,0 +1,35 @@
+[
+  {
+    "question": "What is Python programming language?",
+    "expected_keywords": [
+      "programming",
+      "language",
+      "interpreted",
+      "high-level"
+    ],
+    "category": "technical",
+    "difficulty": "basic"
+  },
+  {
+    "question": "How does machine learning work?",
+    "expected_keywords": [
+      "algorithms",
+      "data",
+      "patterns",
+      "training"
+    ],
+    "category": "technical",
+    "difficulty": "intermediate"
+  },
+  {
+    "question": "What are the benefits of artificial intelligence?",
+    "expected_keywords": [
+      "automation",
+      "efficiency",
+      "decision-making",
+      "analysis"
+    ],
+    "category": "conceptual",
+    "difficulty": "intermediate"
+  }
+]
