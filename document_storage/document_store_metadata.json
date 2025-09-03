@@ -1,5 +1,5 @@
 {
-  "total_documents": 9,
+  "total_documents": 13,
   "document_list": [
     {
       "id": "FN17_SCGHow to Guide.pdf",
@@ -36,7 +36,23 @@
     {
       "id": "esg_metrics_kpis.txt",
       "added_date": "2025-09-03T16:31:46.656528"
+    },
+    {
+      "id": "ESG-Document-online-to-Mastering-ESG.pdf",
+      "added_date": "2025-09-03T16:45:37.703873"
+    },
+    {
+      "id": "ifc-esg-guidebook.pdf",
+      "added_date": "2025-09-03T16:46:05.786153"
+    },
+    {
+      "id": "Integrating ESG into your strategy formulation- a practical guide for sustainable success.pdf",
+      "added_date": "2025-09-03T16:46:06.016851"
+    },
+    {
+      "id": "The-Global-ESG-Handbook.pdf",
+      "added_date": "2025-09-03T16:46:06.126033"
     }
   ],
-  "saved_date": "2025-09-03T16:31:47.374998"
+  "saved_date": "2025-09-03T16:46:07.109622"
 }
