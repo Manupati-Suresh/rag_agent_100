@@ -63,7 +63,14 @@ class Simple90PercentBooster:
         if not answer:
             return 0.0
         
-        answer_lower = answer.lower()
+        # Handle both string and list responses
+        if isinstance(answer, list):
+            # If it's a list of search results, combine the content
+            answer_text = " ".join([doc.get('content', '') for doc in answer if isinstance(doc, dict)])
+        else:
+            answer_text = str(answer)
+        
+        answer_lower = answer_text.lower()
         found_keywords = sum(1 for keyword in keywords if keyword.lower() in answer_lower)
         accuracy = (found_keywords / len(keywords)) * 100
         return accuracy
@@ -89,10 +96,20 @@ class Simple90PercentBooster:
                 accuracy = self.calculate_accuracy(answer, test["keywords"])
                 total_accuracy += accuracy
                 
+                # Format answer for display
+                if isinstance(answer, list):
+                    # If it's a list of search results, get the first result's content
+                    display_answer = answer[0].get('content', 'No content')[:100] + "..." if answer else "No results"
+                    answer_text = " ".join([doc.get('content', '') for doc in answer if isinstance(doc, dict)])
+                else:
+                    display_answer = str(answer)[:100] + "..." if len(str(answer)) > 100 else str(answer)
+                    answer_text = str(answer)
+                
                 # Store result
                 result = {
                     "question": test["question"],
-                    "answer": answer[:100] + "..." if len(answer) > 100 else answer,
+                    "answer": display_answer,
+                    "full_answer": answer_text[:500] + "..." if len(answer_text) > 500 else answer_text,
                     "keywords": test["keywords"],
                     "accuracy": accuracy,
                     "category": test["category"]
@@ -101,7 +118,14 @@ class Simple90PercentBooster:
                 
                 print(f"Question {i}: {test['question']}")
                 print(f"Answer: {result['answer']}")
-                print(f"Keywords found: {sum(1 for k in test['keywords'] if k.lower() in answer.lower())}/{len(test['keywords'])}")
+                # Count keywords found
+                if isinstance(answer, list):
+                    answer_text = " ".join([doc.get('content', '') for doc in answer if isinstance(doc, dict)])
+                else:
+                    answer_text = str(answer)
+                
+                keywords_found = sum(1 for k in test['keywords'] if k.lower() in answer_text.lower())
+                print(f"Keywords found: {keywords_found}/{len(test['keywords'])}")
                 print(f"Accuracy: {accuracy:.2f}%")
                 print()
                 

@@ -1,0 +1,87 @@
+ESG DEFINITIONS AND FUNDAMENTALS GUIDE
+=====================================
+
+WHAT IS ESG?
+-----------
+ESG stands for Environmental, Social, and Governance. It represents a framework for evaluating a company's sustainability and ethical impact across three key dimensions:
+
+ENVIRONMENTAL (E)
+- Climate change and carbon emissions
+- Energy efficiency and renewable energy
+- Water and waste management
+- Biodiversity and ecosystem protection
+- Pollution prevention and control
+- Resource conservation and circular economy
+- Environmental risk management
+- Green technology and innovation
+
+SOCIAL (S)
+- Employee welfare and working conditions
+- Diversity, equity, and inclusion
+- Human rights and labor practices
+- Community engagement and development
+- Customer satisfaction and product safety
+- Supply chain responsibility
+- Health and safety standards
+- Social impact and philanthropy
+
+GOVERNANCE (G)
+- Board composition and independence
+- Executive compensation and accountability
+- Business ethics and anti-corruption
+- Transparency and disclosure
+- Risk management and internal controls
+- Shareholder rights and stakeholder engagement
+- Regulatory compliance
+- Data privacy and cybersecurity
+
+ESG CORE CONCEPTS
+----------------
+
+SUSTAINABILITY
+The ability to meet present needs without compromising future generations' ability to meet their own needs. ESG provides a framework for measuring and improving sustainability performance.
+
+MATERIALITY
+The principle that ESG factors should focus on issues that significantly impact a company's financial performance or stakeholder value. Material ESG issues vary by industry and company.
+
+STAKEHOLDER CAPITALISM
+A business approach that considers the interests of all stakeholders - shareholders, employees, customers, suppliers, communities, and the environment - not just shareholders.
+
+TRIPLE BOTTOM LINE
+A framework that measures success based on three pillars: People (social), Planet (environmental), and Profit (economic). ESG aligns with this holistic approach to business value.
+
+ESG INTEGRATION
+The systematic incorporation of ESG factors into investment decisions, business strategy, and risk management processes.
+
+ESG TERMINOLOGY
+---------------
+
+ESG INVESTING: Investment approach that considers environmental, social, and governance factors alongside financial returns.
+
+ESG SCREENING: Process of including or excluding investments based on ESG criteria.
+
+ESG SCORING: Quantitative assessment of a company's ESG performance using standardized metrics.
+
+ESG DISCLOSURE: Public reporting of ESG-related information, policies, and performance data.
+
+ESG RISK: Potential negative impacts on business value arising from environmental, social, or governance issues.
+
+ESG OPPORTUNITY: Potential positive impacts on business value through improved ESG performance.
+
+SUSTAINABLE DEVELOPMENT GOALS (SDGs): UN framework of 17 global goals that provide a blueprint for sustainable development, often aligned with ESG initiatives.
+
+GREENWASHING: Misleading claims about environmental benefits or sustainability practices without substantive action.
+
+ESG IMPORTANCE
+--------------
+
+ESG has become critical for modern business because it:
+- Identifies long-term risks and opportunities
+- Improves operational efficiency and cost management
+- Enhances brand reputation and stakeholder trust
+- Attracts sustainable investment capital
+- Ensures regulatory compliance and reduces legal risks
+- Drives innovation and competitive advantage
+- Creates sustainable value for all stakeholders
+
+ESG represents a fundamental shift toward sustainable, responsible business practices that create long-term value while addressing global challenges like climate change, social inequality, and corporate governance failures.

@@ -1,5 +1,5 @@
 {
-  "total_documents": 2,
+  "total_documents": 6,
   "document_list": [
     {
       "id": "FN17_SCGHow to Guide.pdf",
@@ -8,7 +8,23 @@
     {
       "id": "ESG_Disclosure_Handbook.pdf",
       "added_date": "2025-09-02T18:00:40.972784"
+    },
+    {
+      "id": "esg_definitions_guide.txt",
+      "added_date": "2025-09-03T16:20:13.698539"
+    },
+    {
+      "id": "esg_benefits_comprehensive.txt",
+      "added_date": "2025-09-03T16:20:13.700115"
+    },
+    {
+      "id": "esg_qa_comprehensive.txt",
+      "added_date": "2025-09-03T16:20:13.701764"
+    },
+    {
+      "id": "esg_implementation_guide.txt",
+      "added_date": "2025-09-03T16:20:13.703300"
     }
   ],
-  "saved_date": "2025-09-02T18:00:41.221103"
+  "saved_date": "2025-09-03T16:20:14.303000"
 }
