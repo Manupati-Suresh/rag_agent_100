@@ -40,7 +40,10 @@ def add_documents_to_rag():
         "esg_definitions_guide.txt",
         "esg_benefits_comprehensive.txt", 
         "esg_qa_comprehensive.txt",
-        "esg_implementation_guide.txt"
+        "esg_implementation_guide.txt",
+        "esg_industry_standards.txt",
+        "esg_risk_management.txt",
+        "esg_metrics_kpis.txt"
     ]
     
     added_count = 0
@@ -97,7 +100,10 @@ def main():
         "esg_definitions_guide.txt",
         "esg_benefits_comprehensive.txt", 
         "esg_qa_comprehensive.txt",
-        "esg_implementation_guide.txt"
+        "esg_implementation_guide.txt",
+        "esg_industry_standards.txt",
+        "esg_risk_management.txt",
+        "esg_metrics_kpis.txt"
     ]
     
     missing_files = [f for f in doc_files if not os.path.exists(f)]
@@ -130,6 +136,11 @@ def main():
         print()
         print("🚀 Next step: Run the accuracy booster!")
         print("   python simple_90_percent_booster.py")
+        print()
+        print("📚 New documents added:")
+        print("• ESG Industry Standards & Frameworks")
+        print("• ESG Risk Management & Assessment") 
+        print("• ESG Metrics & KPIs")
         print("=" * 50)
     
     return success

@@ -1,5 +1,5 @@
 {
-  "total_documents": 6,
+  "total_documents": 9,
   "document_list": [
     {
       "id": "FN17_SCGHow to Guide.pdf",
@@ -24,7 +24,19 @@
     {
       "id": "esg_implementation_guide.txt",
       "added_date": "2025-09-03T16:20:13.703300"
+    },
+    {
+      "id": "esg_industry_standards.txt",
+      "added_date": "2025-09-03T16:31:46.653776"
+    },
+    {
+      "id": "esg_risk_management.txt",
+      "added_date": "2025-09-03T16:31:46.655153"
+    },
+    {
+      "id": "esg_metrics_kpis.txt",
+      "added_date": "2025-09-03T16:31:46.656528"
     }
   ],
-  "saved_date": "2025-09-03T16:20:14.303000"
+  "saved_date": "2025-09-03T16:31:47.374998"
 }

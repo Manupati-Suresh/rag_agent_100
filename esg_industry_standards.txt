@@ -1,0 +1,231 @@
+ESG INDUSTRY STANDARDS AND FRAMEWORKS GUIDE
+==========================================
+
+MAJOR ESG REPORTING FRAMEWORKS
+==============================
+
+GLOBAL REPORTING INITIATIVE (GRI)
+---------------------------------
+The Global Reporting Initiative (GRI) is the most widely used sustainability reporting framework globally.
+
+KEY FEATURES:
+- Universal Standards: Foundation, General Disclosures, Management Approach
+- Topic-specific Standards: Economic, Environmental, Social topics
+- Sector Standards: Industry-specific guidance
+- Modular approach allowing customization
+
+GRI STANDARDS STRUCTURE:
+- GRI 101: Foundation (principles and requirements)
+- GRI 102: General Disclosures (organizational profile, strategy, ethics)
+- GRI 103: Management Approach (how organizations manage material topics)
+- GRI 200 Series: Economic topics (economic performance, market presence)
+- GRI 300 Series: Environmental topics (materials, energy, water, emissions)
+- GRI 400 Series: Social topics (employment, diversity, human rights)
+
+BENEFITS OF GRI:
+- Global recognition and acceptance
+- Comprehensive coverage of sustainability topics
+- Stakeholder-focused approach
+- Comparability across organizations
+- Regular updates and improvements
+
+SUSTAINABILITY ACCOUNTING STANDARDS BOARD (SASB)
+------------------------------------------------
+SASB develops industry-specific standards for financially material ESG topics.
+
+KEY FEATURES:
+- 77 industry standards across 11 sectors
+- Focus on financially material ESG factors
+- Investor-oriented approach
+- Quantitative metrics and qualitative disclosure guidance
+- Evidence-based standard development
+
+SASB SECTORS:
+1. Consumer Goods
+2. Extractives & Minerals Processing
+3. Financials
+4. Food & Beverage
+5. Health Care
+6. Infrastructure
+7. Renewable Resources & Alternative Energy
+8. Resource Transformation
+9. Services
+10. Technology & Communications
+11. Transportation
+
+SASB DISCLOSURE TOPICS:
+- Environment: GHG emissions, air quality, energy management, water management
+- Social Capital: Human rights, community relations, customer privacy
+- Human Capital: Labor practices, employee health and safety, employee engagement
+- Business Model & Innovation: Product design, business model resilience
+- Leadership & Governance: Business ethics, competitive behavior, management systems
+
+TASK FORCE ON CLIMATE-RELATED FINANCIAL DISCLOSURES (TCFD)
+----------------------------------------------------------
+TCFD provides recommendations for climate-related financial risk disclosures.
+
+TCFD PILLARS:
+1. GOVERNANCE
+   - Board oversight of climate-related risks and opportunities
+   - Management's role in assessing and managing climate issues
+
+2. STRATEGY
+   - Climate-related risks and opportunities over short, medium, long term
+   - Impact on business, strategy, and financial planning
+   - Resilience of strategy under different climate scenarios
+
+3. RISK MANAGEMENT
+   - Processes for identifying and assessing climate-related risks
+   - Processes for managing climate-related risks
+   - Integration into overall risk management
+
+4. METRICS AND TARGETS
+   - Metrics used to assess climate-related risks and opportunities
+   - Scope 1, 2, and 3 greenhouse gas emissions
+   - Climate-related targets and performance
+
+TCFD CLIMATE RISKS:
+- Physical Risks: Acute (extreme weather) and Chronic (temperature changes)
+- Transition Risks: Policy, legal, technology, market, reputation risks
+
+CARBON DISCLOSURE PROJECT (CDP)
+-------------------------------
+CDP runs the global disclosure system for environmental impact management.
+
+CDP QUESTIONNAIRES:
+- Climate Change: GHG emissions, climate risks, reduction activities
+- Water Security: Water management, risks, and opportunities
+- Forests: Deforestation risks and sustainable sourcing
+
+CDP SCORING:
+- A: Leadership level
+- A-: Management level
+- B: Awareness level
+- C: Disclosure level
+- D: Non-disclosure
+
+CDP BENEFITS:
+- Benchmarking against peers
+- Investor recognition
+- Supply chain engagement
+- Risk identification and management
+- Performance improvement tracking
+
+INTEGRATED REPORTING FRAMEWORK
+------------------------------
+The International Integrated Reporting Council (IIRC) framework connects financial and non-financial information.
+
+INTEGRATED REPORTING PRINCIPLES:
+- Strategic focus and future orientation
+- Connectivity of information
+- Stakeholder relationships
+- Materiality
+- Conciseness
+- Reliability and completeness
+- Consistency and comparability
+
+SIX CAPITALS MODEL:
+1. Financial Capital: Funds available for business use
+2. Manufactured Capital: Physical objects and infrastructure
+3. Intellectual Capital: Knowledge-based intangibles
+4. Human Capital: People's competencies and capabilities
+5. Social and Relationship Capital: Institutions and relationships
+6. Natural Capital: Environmental resources and processes
+
+UN GLOBAL COMPACT
+-----------------
+The UN Global Compact is a voluntary initiative for corporate sustainability.
+
+TEN PRINCIPLES:
+Human Rights:
+1. Support and respect protection of internationally proclaimed human rights
+2. Ensure non-complicity in human rights abuses
+
+Labour:
+3. Uphold freedom of association and collective bargaining
+4. Eliminate forced and compulsory labor
+5. Abolish child labor
+6. Eliminate employment discrimination
+
+Environment:
+7. Support precautionary approach to environmental challenges
+8. Undertake initiatives to promote environmental responsibility
+9. Encourage development of environmentally friendly technologies
+
+Anti-Corruption:
+10. Work against corruption in all its forms
+
+ISO 26000 SOCIAL RESPONSIBILITY
+-------------------------------
+ISO 26000 provides guidance on social responsibility principles and practices.
+
+CORE SUBJECTS:
+1. Organizational governance
+2. Human rights
+3. Labour practices
+4. The environment
+5. Fair operating practices
+6. Consumer issues
+7. Community involvement and development
+
+PRINCIPLES OF SOCIAL RESPONSIBILITY:
+- Accountability
+- Transparency
+- Ethical behavior
+- Respect for stakeholder interests
+- Respect for the rule of law
+- Respect for international norms of behavior
+- Respect for human rights
+
+EUROPEAN SUSTAINABILITY REPORTING STANDARDS (ESRS)
+--------------------------------------------------
+ESRS are mandatory standards for EU companies under the Corporate Sustainability Reporting Directive (CSRD).
+
+ESRS STRUCTURE:
+- Cross-cutting standards (ESRS 1 & 2)
+- Environmental standards (ESRS E1-E5)
+- Social standards (ESRS S1-S4)
+- Governance standards (ESRS G1)
+
+DOUBLE MATERIALITY:
+- Impact materiality: How the company affects people and environment
+- Financial materiality: How sustainability matters affect company value
+
+FRAMEWORK COMPARISON AND SELECTION
+==================================
+
+CHOOSING THE RIGHT FRAMEWORK:
+Consider these factors:
+- Industry and business model
+- Stakeholder expectations
+- Geographic presence
+- Regulatory requirements
+- Resource availability
+- Reporting objectives
+
+MULTI-FRAMEWORK APPROACH:
+Many companies use multiple frameworks:
+- GRI for comprehensive sustainability reporting
+- SASB for investor-focused disclosures
+- TCFD for climate-related risks
+- CDP for environmental benchmarking
+- Local standards for regulatory compliance
+
+FRAMEWORK ALIGNMENT:
+- Many frameworks are increasingly aligned
+- Common metrics and indicators
+- Shared focus on materiality
+- Integrated reporting approaches
+- Simplified compliance processes
+
+BEST PRACTICES FOR FRAMEWORK IMPLEMENTATION:
+1. Start with materiality assessment
+2. Map existing data to framework requirements
+3. Establish data collection and management systems
+4. Engage stakeholders throughout the process
+5. Ensure senior leadership commitment
+6. Provide regular training and updates
+7. Seek external assurance for credibility
+8. Continuously improve and evolve practices
+
+These industry standards and frameworks provide the foundation for credible, comparable, and comprehensive ESG reporting that meets stakeholder expectations and regulatory requirements.
