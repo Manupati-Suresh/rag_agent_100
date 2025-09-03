@@ -1,0 +1,117 @@
+{
+  "timestamp": "2025-09-02T22:57:16.349082",
+  "telegram_results": {
+    "setup_time": 1.8495416641235352,
+    "upload_times": [
+      0.9130420684814453,
+      0.9237229824066162,
+      1.294027328491211,
+      1.1214182376861572,
+      0.8487451076507568,
+      0.9965238571166992,
+      1.2300937175750732,
+      0.9191153049468994,
+      1.2279767990112305,
+      0.9209089279174805
+    ],
+    "retrieval_times": [],
+    "search_times": [
+      8.830291986465454,
+      6.518969535827637,
+      8.58695101737976,
+      11.26083493232727,
+      16.619494199752808
+    ],
+    "total_documents": 10,
+    "average_upload_speed": 1.039557433128357,
+    "average_retrieval_speed": 0,
+    "average_search_speed": 10.363308334350586,
+    "errors": [
+      "Retrieval failed: test_small_1",
+      "Retrieval failed: test_small_2",
+      "Retrieval failed: test_small_3",
+      "Retrieval failed: test_small_4",
+      "Retrieval failed: test_small_5",
+      "Retrieval failed: test_medium_1",
+      "Retrieval failed: test_medium_2",
+      "Retrieval failed: test_medium_3",
+      "Retrieval failed: test_large_1",
+      "Retrieval failed: test_large_2"
+    ]
+  },
+  "local_results": {
+    "setup_time": 9.502032279968262,
+    "upload_times": [
+      9.5367431640625e-05,
+      0.00012302398681640625,
+      7.462501525878906e-05,
+      8.58306884765625e-05,
+      0.00018596649169921875,
+      0.00015234947204589844,
+      0.0001125335693359375,
+      0.00018453598022460938,
+      0.0001461505889892578,
+      0.0001316070556640625
+    ],
+    "retrieval_times": [
+      2.86102294921875e-06,
+      2.86102294921875e-06,
+      1.9073486328125e-06,
+      3.814697265625e-06,
+      3.5762786865234375e-06,
+      2.6226043701171875e-06,
+      2.6226043701171875e-06,
+      3.814697265625e-06,
+      3.814697265625e-06,
+      3.337860107421875e-06
+    ],
+    "search_times": [
+      0.02191948890686035,
+      0.019429922103881836,
+      0.02022838592529297,
+      0.020097732543945312,
+      0.022092103958129883
+    ],
+    "total_documents": 10,
+    "average_upload_speed": 0.0001291990280151367,
+    "average_retrieval_speed": 3.1232833862304687e-06,
+    "average_search_speed": 0.02075352668762207,
+    "errors": []
+  },
+  "comparison": {
+    "setup_time_comparison": {
+      "telegram": 1.8495416641235352,
+      "local": 9.502032279968262,
+      "winner": "telegram",
+      "difference_seconds": 7.652490615844727
+    },
+    "upload_speed_comparison": {
+      "telegram_avg": 1.039557433128357,
+      "local_avg": 0.0001291990280151367,
+      "winner": "local",
+      "speed_ratio": 1039.557433128357
+    },
+    "retrieval_speed_comparison": {
+      "telegram_avg": 0,
+      "local_avg": 3.1232833862304687e-06,
+      "winner": "telegram",
+      "speed_ratio": 0.0
+    },
+    "search_speed_comparison": {
+      "telegram_avg": 10.363308334350586,
+      "local_avg": 0.02075352668762207,
+      "winner": "local",
+      "speed_ratio": 499.3516759988328
+    }
+  },
+  "recommendations": [
+    "\ud83d\udcf1 Telegram storage initialization is competitive (1.85s vs 9.50s)",
+    "\u26a0\ufe0f Telegram uploads are 1039.6x slower than local storage - consider batch operations",
+    "\u2705 Telegram retrieval speed is acceptable (0.00s avg)",
+    "\ud83d\udd0d Search performance: Local caching essential (Telegram 499.4x slower)",
+    "\ud83d\udca1 Implement hybrid approach: Telegram for storage + local cache for speed",
+    "\ud83d\udcc8 Consider background sync for frequently accessed documents",
+    "\ud83d\udd04 Use batch operations for multiple document uploads",
+    "\u26a1 Pre-load commonly searched documents into local cache"
+  ]
+}
