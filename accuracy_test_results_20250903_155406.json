@@ -1,0 +1,220 @@
+{
+  "overall_accuracy": 0.0,
+  "target_accuracy": 0.9,
+  "accuracy_achieved": "False",
+  "total_questions": 13,
+  "total_time": 126.7618317604065,
+  "average_response_time": 9.74935091458834,
+  "category_breakdown": {
+    "esg_basic": {
+      "average_accuracy": 0.0,
+      "weight": 0.2,
+      "weighted_score": 0.0
+    },
+    "esg_intermediate": {
+      "average_accuracy": 0.0,
+      "weight": 0.25,
+      "weighted_score": 0.0
+    },
+    "esg_analytical": {
+      "average_accuracy": 0.0,
+      "weight": 0.25,
+      "weighted_score": 0.0
+    },
+    "esg_procedural": {
+      "average_accuracy": 0.0,
+      "weight": 0.15,
+      "weighted_score": 0.0
+    },
+    "esg_advanced": {
+      "average_accuracy": 0.0,
+      "weight": 0.15,
+      "weighted_score": 0.0
+    }
+  },
+  "detailed_results": [
+    {
+      "question_id": 1,
+      "question": "What is ESG?",
+      "category": "esg_basic",
+      "difficulty": "intermediate",
+      "expected_answer": "['environmental', 'social', 'governance', 'ESG', 'sustainability', 'responsibility', 'framework']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 53\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 10.242525339126587,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:52:09.505237"
+    },
+    {
+      "question_id": 2,
+      "question": "What are ESG disclosures?",
+      "category": "esg_basic",
+      "difficulty": "intermediate",
+      "expected_answer": "['disclosures', 'reporting', 'transparency', 'ESG', 'stakeholders', 'information', 'performance']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 46\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 6.947386980056763,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:52:16.453323"
+    },
+    {
+      "question_id": 3,
+      "question": "Why are ESG programs important?",
+      "category": "esg_basic",
+      "difficulty": "intermediate",
+      "expected_answer": "['programs', 'important', 'benefits', 'ESG', 'risk management', 'reputation', 'compliance']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 36\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 10.033040285110474,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:52:26.487194"
+    },
+    {
+      "question_id": 4,
+      "question": "How do companies implement ESG programs?",
+      "category": "esg_intermediate",
+      "difficulty": "intermediate",
+      "expected_answer": "['implement', 'companies', 'programs', 'ESG', 'strategy', 'framework', 'management']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 26\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 9.932894229888916,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:52:36.421959"
+    },
+    {
+      "question_id": 5,
+      "question": "What are the key components of ESG reporting?",
+      "category": "esg_intermediate",
+      "difficulty": "intermediate",
+      "expected_answer": "['components', 'reporting', 'ESG', 'key', 'metrics', 'standards', 'disclosure']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 16\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 9.726992845535278,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:52:46.150571"
+    },
+    {
+      "question_id": 6,
+      "question": "How do ESG factors affect business performance?",
+      "category": "esg_intermediate",
+      "difficulty": "intermediate",
+      "expected_answer": "['factors', 'affect', 'business', 'performance', 'impact', 'value', 'sustainability']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 6\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 9.93142318725586,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:52:56.083308"
+    },
+    {
+      "question_id": 7,
+      "question": "Compare environmental and social aspects of ESG",
+      "category": "esg_analytical",
+      "difficulty": "intermediate",
+      "expected_answer": "['environmental', 'social', 'compare', 'aspects', 'differences', 'similarities', 'impact']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 56\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 9.92846393585205,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:53:06.013967"
+    },
+    {
+      "question_id": 8,
+      "question": "What are the advantages and challenges of ESG implementation?",
+      "category": "esg_analytical",
+      "difficulty": "intermediate",
+      "expected_answer": "['advantages', 'challenges', 'implementation', 'ESG', 'benefits', 'obstacles', 'solutions']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 46\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 10.138126611709595,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:53:16.152952"
+    },
+    {
+      "question_id": 9,
+      "question": "How does ESG reporting benefit different stakeholders?",
+      "category": "esg_analytical",
+      "difficulty": "intermediate",
+      "expected_answer": "['reporting', 'benefit', 'stakeholders', 'ESG', 'investors', 'customers', 'employees']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 36\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 10.033491611480713,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:53:26.188016"
+    },
+    {
+      "question_id": 10,
+      "question": "How to start an ESG program in a company?",
+      "category": "esg_procedural",
+      "difficulty": "intermediate",
+      "expected_answer": "['start', 'program', 'company', 'ESG', 'steps', 'planning', 'implementation']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 26\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 9.937427759170532,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:53:36.128390"
+    },
+    {
+      "question_id": 11,
+      "question": "Steps to create effective ESG disclosures",
+      "category": "esg_procedural",
+      "difficulty": "intermediate",
+      "expected_answer": "['steps', 'create', 'effective', 'disclosures', 'process', 'guidelines', 'best practices']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 16\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 9.81909441947937,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:53:45.948510"
+    },
+    {
+      "question_id": 12,
+      "question": "Explain the concept of ESG materiality",
+      "category": "esg_advanced",
+      "difficulty": "intermediate",
+      "expected_answer": "['concept', 'materiality', 'ESG', 'explain', 'significance', 'relevance', 'impact']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 6\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 9.83094334602356,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:53:55.782337"
+    },
+    {
+      "question_id": 13,
+      "question": "What is the role of governance in ESG frameworks?",
+      "category": "esg_advanced",
+      "difficulty": "intermediate",
+      "expected_answer": "['role', 'governance', 'frameworks', 'ESG', 'oversight', 'accountability', 'structure']",
+      "generated_answer": "ERROR: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n}\n, links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, retry_delay {\n  seconds: 56\n}\n]",
+      "accuracy_score": 0.0,
+      "response_time": 10.23975133895874,
+      "sources_count": 0,
+      "confidence_score": 0.0,
+      "error_type": "generation_failed",
+      "timestamp": "2025-09-03T15:54:06.023035"
+    }
+  ],
+  "timestamp": "2025-09-03T15:54:06.024518"
+}

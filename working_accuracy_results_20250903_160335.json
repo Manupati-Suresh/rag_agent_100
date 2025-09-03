@@ -1,0 +1,151 @@
+{
+  "initial_accuracy": 0.5,
+  "final_accuracy": 0.5,
+  "improvement": 0.0,
+  "target_achieved": false,
+  "optimization_applied": true,
+  "initial_results": {
+    "overall_accuracy": 0.5,
+    "target_achieved": false,
+    "detailed_results": [
+      {
+        "question": "What is ESG?",
+        "answer": "ESG Disclosure Handbook \u2013 Purpose and objectives 5\n    Introduction 5\n    What is the ESG Disclosure Handbook and who is it for. However, in many cases it  \nis difficult for users of information to discern why \na company has taken a particular approach, what \nassumptions inform conclusions about the ESG \ninformation reported, and what purpose and audience  \nthe information intends to serve. What is the ESG Disclosure Handbook \nand who is it for.",
+        "accuracy": 0.25,
+        "category": "basic",
+        "keywords_found": 1,
+        "total_keywords": 4,
+        "sources": [
+          "ESG_Disclosure_Handbook.pdf",
+          "FN17_SCGHow to Guide.pdf",
+          "doc_4"
+        ]
+      },
+      {
+        "question": "What are ESG disclosures?",
+        "answer": "While these developments are welcome \nresponses to the challenges of our times, they also mean \nthat companies are facing many choices when deciding \nwhat ESG information to report, how, to whom and where. Scope\nDisclosures about ESG risks and opportunities outside \nthe company\u2019s operational/organizational boundary are \ncurrently inadequate. ESG Disclosure Handbook 9\u2022  Dangers of boilerplate reporting  \nA recent study6 focused on risk factor disclosures found \nthat analysts are better able to assess fundamental \nrisk and reflect it in stock prices when disclosures are \nmore detailed and avoid vague, abstract or \u201cboilerplate\u201d \nlanguage.",
+        "accuracy": 0.5,
+        "category": "basic",
+        "keywords_found": 2,
+        "total_keywords": 4,
+        "sources": [
+          "ESG_Disclosure_Handbook.pdf",
+          "FN17_SCGHow to Guide.pdf",
+          "doc_3"
+        ]
+      },
+      {
+        "question": "How do companies report ESG information?",
+        "answer": "While these developments are welcome \nresponses to the challenges of our times, they also mean \nthat companies are facing many choices when deciding \nwhat ESG information to report, how, to whom and where. ESG Disclosure Handbook \npurpose and objectives\nIntroduction\nMany considerations affect the decisions companies \nmake about what environmental, social and governance \n(ESG) information they report as well as how and where \nthey should report the information and for which \naudiences. Decisions about the type of ESG information to report \nas well as why and how companies should prepare the \ninformation, where they should report it and for whom,  \nare based on the evaluations and judgements \nmanagement makes when assessing the different  \noptions available to them.",
+        "accuracy": 0.75,
+        "category": "intermediate",
+        "keywords_found": 3,
+        "total_keywords": 4,
+        "sources": [
+          "ESG_Disclosure_Handbook.pdf",
+          "FN17_SCGHow to Guide.pdf",
+          "doc_5"
+        ]
+      },
+      {
+        "question": "What are the benefits of ESG programs?",
+        "answer": "While these developments are welcome \nresponses to the challenges of our times, they also mean \nthat companies are facing many choices when deciding \nwhat ESG information to report, how, to whom and where. Investors are interested in:\n\u2022 Risks that affect the company\u2019s viability; \n\u2022  How ESG issues have affected decisions about future \ncapital expenditure or changed forecasts about future \nreturns;\n\u2022  What value the company is generating and how;\n\u2022  Changing capabilities and competencies;\n\u2022  Whether investments are supporting current returns or \nfuture prospects;\n\u2022  Strategic and financial decision-making within the \ncompany;\n\u2022  How companies are adapting to the low-carbon \ntransition and sustainable development;\n\u2022  Whether and how companies are considering different \nscenarios, assumptions and parameters for planning \npurposes and management of uncertainties. All of these approaches are legitimate responses to the \ndemand for ESG information.",
+        "accuracy": 0.25,
+        "category": "intermediate",
+        "keywords_found": 1,
+        "total_keywords": 4,
+        "sources": [
+          "ESG_Disclosure_Handbook.pdf",
+          "FN17_SCGHow to Guide.pdf",
+          "doc_5"
+        ]
+      },
+      {
+        "question": "What frameworks are used for ESG reporting?",
+        "answer": "The Reporting Exchange and the Indicator Library should \nbe used in conjunction with the ESG Disclosure Handbook  \nas a reference point for companies when exercising their \njudgement about what to disclose in external reports. 20\nESG Implementation Guide: Getting Started July 2020Widely Used Voluntary Disclosure Frameworks and Related Initiatives\nInformation Source\nSustainability \nAccounting Standards \nBoard (SASB)*SASB\u2014Materiality Map\nSASB\u2014Industry Standards\nGlobal Reporting \nInitiative (GRI)GRI\u2014Standards\nTask Force on \nClimate-related \nFinancial Disclosures \n(TCFD)TCFD\u2014Final Report\u2014  \nRecommendations\nThe Principles \nfor Responsible \nInvestment (PRI)\nUN Sustainable \nDevelopment Goals \n(SDGs)PRI\nAbout the SDGs\nSDGsSASB provides 77 globally applicable industry-specific reporting standards that \nidentify the minimal set of sustainability topics and their associated metrics for \na typical company in an industry. The guidance in the ESG Disclosure Handbook is \ndesigned for use by companies when considering what \nto report, where, why, to whom and how in response to \nnon-prescriptive mandatory ESG reporting requirements \n(see Box 1), voluntary ESG reporting requirements and \ncorporate ESG reporting objectives.",
+        "accuracy": 0.75,
+        "category": "advanced",
+        "keywords_found": 3,
+        "total_keywords": 4,
+        "sources": [
+          "ESG_Disclosure_Handbook.pdf",
+          "FN17_SCGHow to Guide.pdf",
+          "doc_5"
+        ]
+      }
+    ],
+    "test_count": 5
+  },
+  "final_results": {
+    "overall_accuracy": 0.5,
+    "target_achieved": false,
+    "detailed_results": [
+      {
+        "question": "What is ESG?",
+        "answer": "ESG Disclosure  \nHandbook\n2 ESG Disclosure Handbook\n ESG Disclosure Handbook 3Contents\n1. ESG Disclosure Handbook \u2013 Purpose and objectives 5\n    Introduction 5\n    What is the ESG Disclosure Handbook and who is it for.",
+        "accuracy": 0.25,
+        "category": "basic",
+        "keywords_found": 1,
+        "total_keywords": 4,
+        "sources": [
+          "ESG_Disclosure_Handbook.pdf",
+          "FN17_SCGHow to Guide.pdf",
+          "doc_5"
+        ]
+      },
+      {
+        "question": "What are ESG disclosures?",
+        "answer": "While these developments are welcome \nresponses to the challenges of our times, they also mean \nthat companies are facing many choices when deciding \nwhat ESG information to report, how, to whom and where. Scope\nDisclosures about ESG risks and opportunities outside \nthe company\u2019s operational/organizational boundary are \ncurrently inadequate. ESG Disclosure Handbook 9\u2022  Dangers of boilerplate reporting  \nA recent study6 focused on risk factor disclosures found \nthat analysts are better able to assess fundamental \nrisk and reflect it in stock prices when disclosures are \nmore detailed and avoid vague, abstract or \u201cboilerplate\u201d \nlanguage.",
+        "accuracy": 0.5,
+        "category": "basic",
+        "keywords_found": 2,
+        "total_keywords": 4,
+        "sources": [
+          "ESG_Disclosure_Handbook.pdf",
+          "FN17_SCGHow to Guide.pdf",
+          "doc_5"
+        ]
+      },
+      {
+        "question": "How do companies report ESG information?",
+        "answer": "6\n    How to use the handbook 7\n    Structure of the handbook 8\n    How the handbook fits into the corporate reporting landscape 8\n3. Process overview 10\n4. 16\n    Key question 5: how should ESG information be prepared and presented.",
+        "accuracy": 0.5,
+        "category": "intermediate",
+        "keywords_found": 2,
+        "total_keywords": 4,
+        "sources": [
+          "ESG_Disclosure_Handbook.pdf",
+          "FN17_SCGHow to Guide.pdf",
+          "doc_5"
+        ]
+      },
+      {
+        "question": "What are the benefits of ESG programs?",
+        "answer": "The regulatory and societal context in which \nthe company operates, its stakeholders, ethical choices \nand values and other factors influence the choices \nabout what to report. These include:\n\u2022  Publishing multiple reports aimed respectively at \nparticular subject matter, themes, objectives or \nframework requirements; \n\u2022  Integrated reporting that aims to cover all subject matter \nmaterially relevant to performance and value creation, \nincluding increasing the presentation of ESG information \nalongside financial statements and management \ncommentary;1\n\u2022  Hybrid approaches based on a range of influences, \nincluding reporting requirements, internal objectives, \npeer practice and/or targets for inclusion in indices. The ESG Disclosure Handbook offers guidance to help \ncompanies navigate choices associated with ESG \nreporting, including:\n\u2022 The ESG information needs of multiple stakeholders;\n\u2022 Multiple reporting provisions (see Box 1);\n\u2022 Internal objectives for reporting;\n\u2022  External objectives for reporting (e.",
+        "accuracy": 0.5,
+        "category": "intermediate",
+        "keywords_found": 2,
+        "total_keywords": 4,
+        "sources": [
+          "ESG_Disclosure_Handbook.pdf",
+          "FN17_SCGHow to Guide.pdf",
+          "doc_5"
+        ]
+      },
+      {
+        "question": "What frameworks are used for ESG reporting?",
+        "answer": "The Reporting Exchange and the Indicator Library should \nbe used in conjunction with the ESG Disclosure Handbook  \nas a reference point for companies when exercising their \njudgement about what to disclose in external reports. 20\nESG Implementation Guide: Getting Started July 2020Widely Used Voluntary Disclosure Frameworks and Related Initiatives\nInformation Source\nSustainability \nAccounting Standards \nBoard (SASB)*SASB\u2014Materiality Map\nSASB\u2014Industry Standards\nGlobal Reporting \nInitiative (GRI)GRI\u2014Standards\nTask Force on \nClimate-related \nFinancial Disclosures \n(TCFD)TCFD\u2014Final Report\u2014  \nRecommendations\nThe Principles \nfor Responsible \nInvestment (PRI)\nUN Sustainable \nDevelopment Goals \n(SDGs)PRI\nAbout the SDGs\nSDGsSASB provides 77 globally applicable industry-specific reporting standards that \nidentify the minimal set of sustainability topics and their associated metrics for \na typical company in an industry. The guidance in the ESG Disclosure Handbook is \ndesigned for use by companies when considering what \nto report, where, why, to whom and how in response to \nnon-prescriptive mandatory ESG reporting requirements \n(see Box 1), voluntary ESG reporting requirements and \ncorporate ESG reporting objectives.",
+        "accuracy": 0.75,
+        "category": "advanced",
+        "keywords_found": 3,
+        "total_keywords": 4,
+        "sources": [
+          "ESG_Disclosure_Handbook.pdf",
+          "FN17_SCGHow to Guide.pdf",
+          "doc_5"
+        ]
+      }
+    ],
+    "test_count": 5
+  }
+}
