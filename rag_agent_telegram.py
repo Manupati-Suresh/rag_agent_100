@@ -14,7 +14,16 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class TelegramRAGAgent:
-    # ... [rest of the original class implementation] ...
+    def __init__(self, use_telegram: bool = True):
+        self.use_telegram = use_telegram
+
+    async def initialize_telegram(self):
+        # Placeholder: Implement actual Telegram initialization logic
+        return True
+
+    async def load_documents(self):
+        # Placeholder: Implement document loading logic
+        pass
 
 # Async wrapper functions for easier use
 async def create_telegram_rag_agent(use_telegram: bool = True) -> TelegramRAGAgent:
@@ -24,7 +33,7 @@ async def create_telegram_rag_agent(use_telegram: bool = True) -> TelegramRAGAge
     if use_telegram:
         success = await agent.initialize_telegram()
         if not success:
-            print("⚠️ Falling back to local storage")
+            print(" Falling back to local storage")
             agent.use_telegram = False
     
     await agent.load_documents()
