@@ -1,23 +1,18 @@
 import os
 import json
 import numpy as np
-from sentence_transformers import SentenceTransformer
-import faiss
 from typing import List, Dict, Tuple
 import pickle
 from datetime import datetime
 import hashlib
 
 class DocumentStore:
-    def __init__(self, model_name: str = 'all-MiniLM-L6-v2', storage_path: str = 'document_storage'):
+    def __init__(self, storage_path: str = 'document_storage'):
         """
-        Initialize the document store with a sentence transformer model
+        Initialize the document store.
         """
-        self.model = SentenceTransformer(model_name)
         self.documents = []
-        self.embeddings = None
-        self.index = None
-        self.embedding_dim = 384  # Default for all-MiniLM-L6-v2
+        self.index = None # No FAISS index for rule-based
         self.storage_path = storage_path
         self.max_documents = 100
         
@@ -52,55 +47,60 @@ class DocumentStore:
         
     def build_index(self):
         """
-        Build FAISS index from all documents
+        Placeholder for rule-based indexing. No FAISS index will be built.
         """
-        if not self.documents:
-            raise ValueError("No documents to index")
-            
-        # Extract content for embedding
-        contents = [doc['content'] for doc in self.documents]
-        
-        # Generate embeddings
-        print("Generating embeddings...")
-        self.embeddings = self.model.encode(contents, show_progress_bar=True)
-        
-        # Build FAISS index
-        self.embedding_dim = self.embeddings.shape[1]
-        self.index = faiss.IndexFlatIP(self.embedding_dim)  # Inner product for cosine similarity
-        
-        # Normalize embeddings for cosine similarity
-        faiss.normalize_L2(self.embeddings)
-        self.index.add(self.embeddings.astype('float32'))
-        
-        print(f"Index built with {len(self.documents)} documents")
+        print("Rule-based document store: No explicit search index to build.")
+        self.index = True  # Indicate that indexing conceptually happened
         
     def search(self, query: str, top_k: int = 5) -> List[Dict]:
         """
-        Search for similar documents
+        Rule-based keyword search: score documents by keyword matches and return top_k.
         """
-        if self.index is None:
-            raise ValueError("Index not built. Call build_index() first")
-            
-        # Encode query
-        query_embedding = self.model.encode([query])
-        faiss.normalize_L2(query_embedding)
-        
-        # Search
-        scores, indices = self.index.search(query_embedding.astype('float32'), top_k)
-        
-        # Format results
-        results = []
-        for i, (score, idx) in enumerate(zip(scores[0], indices[0])):
-            if idx != -1:  # Valid result
-                doc = self.documents[idx]
-                results.append({
-                    'rank': i + 1,
-                    'score': float(score),
-                    'document_id': doc['id'],
-                    'content': doc['content'],
-                    'metadata': doc['metadata']
-                })
-                
+        if not self.documents:
+            return []
+
+        # Extract simple keywords
+        import re
+        words = re.findall(r'\b\w+\b', query.lower())
+        stop_words = {"the","a","an","and","or","but","is","are","was","were","to","in","of","for"}
+        keywords = [w for w in words if len(w) > 2 and w not in stop_words]
+
+        scored: List[Tuple[float, Dict]] = []
+        for doc in self.documents:
+            text_lower = doc['content'].lower()
+            score = 0.0
+            matches = 0
+            for kw in keywords:
+                # word-boundary match count
+                count = len(re.findall(r'\b' + re.escape(kw) + r'\b', text_lower))
+                if count > 0:
+                    matches += count
+                    # weight by frequency with diminishing returns
+                    score += min(1.0, 0.5 + 0.25 * count)
+
+            # Lightweight bonus for title/id keyword presence
+            if any(kw in doc['id'].lower() for kw in keywords):
+                score += 0.5
+
+            if score > 0:
+                scored.append((score, doc))
+
+        # If nothing matched, return empty
+        if not scored:
+            return []
+
+        # Sort by score descending
+        scored.sort(key=lambda x: x[0], reverse=True)
+
+        results: List[Dict] = []
+        for rank, (score, doc) in enumerate(scored[:top_k], start=1):
+            results.append({
+                'rank': rank,
+                'score': float(score),
+                'document_id': doc['id'],
+                'content': doc['content'],
+                'metadata': doc['metadata']
+            })
         return results
         
     def save(self, filepath: str = None):
@@ -112,8 +112,7 @@ class DocumentStore:
             
         data = {
             'documents': self.documents,
-            'embeddings': self.embeddings,
-            'embedding_dim': self.embedding_dim,
+            'embedding_dim': None, # No embeddings
             'max_documents': self.max_documents,
             'saved_date': datetime.now().isoformat()
         }
@@ -121,11 +120,7 @@ class DocumentStore:
         with open(filepath, 'wb') as f:
             pickle.dump(data, f)
             
-        # Save FAISS index separately
-        if self.index is not None:
-            faiss_path = filepath.replace('.pkl', '.faiss')
-            faiss.write_index(self.index, faiss_path)
-            
+        # No FAISS index to save
         # Save document metadata as JSON for easy inspection
         metadata_path = filepath.replace('.pkl', '_metadata.json')
         metadata = {
@@ -151,15 +146,10 @@ class DocumentStore:
             data = pickle.load(f)
             
         self.documents = data['documents']
-        self.embeddings = data['embeddings']
-        self.embedding_dim = data['embedding_dim']
+        self.index = None # No FAISS index
         self.max_documents = data.get('max_documents', 100)
         
-        # Load FAISS index
-        faiss_path = filepath.replace('.pkl', '.faiss')
-        if os.path.exists(faiss_path):
-            self.index = faiss.read_index(faiss_path)
-            
+        # No FAISS index to load
         print(f"Loaded {len(self.documents)} documents from {filepath}")
         return True
         
@@ -170,9 +160,8 @@ class DocumentStore:
         for i, doc in enumerate(self.documents):
             if doc['id'] == doc_id:
                 self.documents.pop(i)
-                # Need to rebuild index after removal
-                if self.embeddings is not None:
-                    self.build_index()
+                # Rebuild index not needed for rule-based if not doing complex indexing
+                self.index = None # Reset index state
                 return True
         return False
         
@@ -181,7 +170,6 @@ class DocumentStore:
         Clear all documents from the store
         """
         self.documents = []
-        self.embeddings = None
         self.index = None
         
     def get_document_stats(self):

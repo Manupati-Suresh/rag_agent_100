@@ -1,0 +1,28 @@
+[
+  {
+    "patterns": [
+      "^help$",
+      "^start$",
+      "how to (use|start) (the )?bot",
+      "what can you do"
+    ],
+    "answer": "Hi! I can answer FAQs and retrieve relevant snippets from your uploaded documents stored in Telegram. Ask a question or use /list_documents to see what's available."
+  },
+  {
+    "patterns": [
+      "upload (a )?document",
+      "add (new )?doc",
+      "how do i add files"
+    ],
+    "answer": "To add a document, send the file here. I'll store it in Telegram and index it for retrieval. You can also use /add_document to begin."
+  },
+  {
+    "patterns": [
+      "list (all )?documents",
+      "what documents (are )?available",
+      "^/list_documents$"
+    ],
+    "answer": "Use /list_documents to view stored documents."
+  }
+]
+
