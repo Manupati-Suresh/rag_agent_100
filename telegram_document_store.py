@@ -18,7 +18,7 @@ import tempfile
 import pickle
 
 class TelegramDocumentStore:
-    def __init__(self, api_id: str, api_hash: str, phone_number: str, channel_username: str = None):
+    def __init__(self, api_id: str, api_hash: str, phone_number: str, channel_username: str = None, session_name: str = 'rag_session'):
         """
         Initialize Telegram Document Store
         
@@ -33,12 +33,13 @@ class TelegramDocumentStore:
         self.phone_number = phone_number
         self.channel_username = channel_username
         self.client = None
+        self.session_name = session_name
         self.documents_index = {}  # Maps doc_id to message_id
         self.max_documents = 100
         
     async def initialize(self):
         """Initialize Telegram client and authenticate"""
-        self.client = TelegramClient('rag_session', self.api_id, self.api_hash)
+        self.client = TelegramClient(self.session_name, self.api_id, self.api_hash)
         await self.client.start(phone=self.phone_number)
         
         # Load existing document index
@@ -70,7 +71,10 @@ class TelegramDocumentStore:
                         with open(tmp.name, 'r') as f:
                             self.documents_index = json.load(f)
                         
-                        os.unlink(tmp.name)
+                        try:
+                            os.unlink(tmp.name)
+                        except Exception:
+                            pass
                     
                     print(f"📋 Loaded document index with {len(self.documents_index)} entries")
                     return
@@ -96,7 +100,10 @@ class TelegramDocumentStore:
                 attributes=[DocumentAttributeFilename('rag_documents_index.json')]
             )
             
-            os.unlink(tmp_path)
+            try:
+                os.unlink(tmp_path)
+            except Exception:
+                pass
             print("💾 Document index saved to Telegram")
             
         except Exception as e:
@@ -163,7 +170,10 @@ class TelegramDocumentStore:
             # Save updated index
             await self.save_document_index()
             
-            os.unlink(tmp_path)
+            try:
+                os.unlink(tmp_path)
+            except Exception:
+                pass
             print(f"✅ Document '{doc_id}' uploaded to Telegram")
             return True
             
@@ -203,7 +213,10 @@ class TelegramDocumentStore:
                 with open(tmp.name, 'r', encoding='utf-8') as f:
                     doc_data = json.load(f)
                 
-                os.unlink(tmp.name)
+                try:
+                    os.unlink(tmp.name)
+                except Exception:
+                    pass
             
             return doc_data
             

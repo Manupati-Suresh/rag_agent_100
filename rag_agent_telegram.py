@@ -18,11 +18,14 @@ class RuleBasedTelegramRAGAgent:
         self.config = TelegramConfig()
         self.config.validate_config()
         
+        # Use a unique session name per run to avoid sqlite locking
+        session_name = f"rag_session_{os.getpid()}"
         self.telegram_store = TelegramDocumentStore(
             api_id=int(self.config.API_ID),
             api_hash=self.config.API_HASH,
             phone_number=self.config.PHONE_NUMBER,
-            channel_username=self.config.STORAGE_CHANNEL
+            channel_username=self.config.STORAGE_CHANNEL,
+            session_name=session_name
         )
         
         self.rag_agent = RAGAgent() # Our simplified RAGAgent
@@ -66,7 +69,14 @@ class RuleBasedTelegramRAGAgent:
                 
         @self.telegram_client.on(events.NewMessage)
         async def message_handler(event):
-            if event.raw_text.startswith(tuple(['/start', '/add_document', '/list_documents'])):
+            # Only respond in private (user) dialogs to avoid admin permission errors
+            try:
+                if not (await event.get_chat()).is_user:
+                    return
+            except Exception:
+                return
+
+            if event.raw_text.startswith(tuple(['/start', '/add_document', '/list_documents', '/list_faqs'])):
                 return # Handled by specific handlers
                 
             if event.message.document:
@@ -120,7 +130,7 @@ class RuleBasedTelegramRAGAgent:
         print(f"✅ Loaded {len(telegram_docs)} documents from Telegram into RAG agent.")
         
     async def handle_text_query(self, event):
-        user_query = event.raw_text
+        user_query = event.raw_text or ""
         print(f"Received query: {user_query}")
         
         # Use the rule-based RAGAgent to generate a response
@@ -135,7 +145,11 @@ class RuleBasedTelegramRAGAgent:
                 snippets += f"---\nDocument ID: {res['document_id']}\nSnippet: {res['highlighted_snippet']}\n"
             answer_text += snippets
             
-        await event.reply(answer_text)
+        try:
+            await event.reply(answer_text)
+        except Exception as e:
+            # Silently ignore send failures in restricted contexts
+            print(f"Reply failed: {e}")
         
     async def start(self):
         """Start the Telegram bot"""
